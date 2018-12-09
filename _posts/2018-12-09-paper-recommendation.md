@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "2018 Papaer Reading List"
+title:  "2018 Paper Reading List"
 date:   2018-12-09
 excerpt: "especially if you're interested in fixed income and market microstructure..."
 tag:
