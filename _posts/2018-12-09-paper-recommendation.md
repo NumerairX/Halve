@@ -9,7 +9,7 @@ tag:
 
 
 
-2018 is coming to an end, and by the end of this year I picked up a new hobbit - answering quesitons on stack exchange (more specifically on [quant fiance]( https://quant.stackexchange.com/)). It appears that a lot of times I see questions iterating over the same idea, and it got me wonder what if we can have a centralized paper recommendation for anyone interested in quant finance, to start from the essentials and build a good foundation.  
+2018 is coming to an end, and by the end of this year I picked up a new hobby - answering quesitons on stack exchange (more specifically on [quant fiance]( https://quant.stackexchange.com/)). It appears that a lot of times I see questions iterating over the same idea, and it made me wonder what if we can have a list of paper recommendations for anyone interested in quant finance, to start from the essentials and build a good foundation.  
 
 So I decided to open this blog and share my reserves and interests with the folks. As a easy start, I will give a recommended reading list for understanding basics in some subfields of quant finance, and deeper digging in fixed income and market microstrucutre (I'm more focused on these).
 
