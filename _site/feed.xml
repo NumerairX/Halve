@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.7.4">Jekyll</generator><link href="//numerairx.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="//numerairx.github.io/" rel="alternate" type="text/html" /><updated>2018-12-09T17:36:31-05:00</updated><id>//numerairx.github.io/feed.xml</id><title type="html">NumerairX</title><subtitle>Weekly Quant Struggles</subtitle><entry><title type="html">2018 Paper and Book Reading List</title><link href="//numerairx.github.io/paper-recommendation/" rel="alternate" type="text/html" title="2018 Paper and Book Reading List" /><published>2018-12-09T00:00:00-05:00</published><updated>2018-12-09T00:00:00-05:00</updated><id>//numerairx.github.io/paper-recommendation</id><content type="html" xml:base="//numerairx.github.io/paper-recommendation/">&lt;p&gt;2018 is coming to an end, and by the end of this year I picked up a new hobby - answering quesitons on stack exchange (more specifically on &lt;a href=&quot;https://quant.stackexchange.com/&quot;&gt;quant fiance&lt;/a&gt;). It appears that a lot of times I see questions iterating over the same idea, and it made me wonder what if we can have a list of paper recommendations for anyone interested in quant finance, to start from the essentials and build a good foundation.&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.7.4">Jekyll</generator><link href="//numerairx.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="//numerairx.github.io/" rel="alternate" type="text/html" /><updated>2018-12-09T17:38:05-05:00</updated><id>//numerairx.github.io/feed.xml</id><title type="html">NumerairX</title><subtitle>Weekly Quant Struggles</subtitle><entry><title type="html">2018 Paper and Book Reading List</title><link href="//numerairx.github.io/paper-recommendation/" rel="alternate" type="text/html" title="2018 Paper and Book Reading List" /><published>2018-12-09T00:00:00-05:00</published><updated>2018-12-09T00:00:00-05:00</updated><id>//numerairx.github.io/paper-recommendation</id><content type="html" xml:base="//numerairx.github.io/paper-recommendation/">&lt;p&gt;2018 is coming to an end, and by the end of this year I picked up a new hobby - answering quesitons on stack exchange (more specifically on &lt;a href=&quot;https://quant.stackexchange.com/&quot;&gt;quant fiance&lt;/a&gt;). It appears that a lot of times I see questions iterating over the same idea, and it made me wonder what if we can have a list of paper recommendations for anyone interested in quant finance, to start from the essentials and build a good foundation.&lt;/p&gt;
 
 &lt;p&gt;So I decided to open this blog and share my reserves and interests with the folks. As a easy start, I will give a recommended reading list for understanding basics in some subfields of quant finance, and deeper digging in fixed income and market microstrucutre (I’m more focused on these).&lt;/p&gt;
 
@@ -49,19 +49,23 @@
 &lt;p&gt;&lt;strong&gt;Reason:&lt;/strong&gt; some of the basics on pricing futures and forwards, what’s the most famous way to approximate PDE in fixed income pricing, and reducing colinearlity. In trading, fixed income sees a lot of pairs trading strategy so I think it’s essential to understand how the market works, and what pairs trading originated from to what problems you need to pay attention to while implementing.&lt;/p&gt;
 
 &lt;h2 id=&quot;machine-learning--general&quot;&gt;Machine Learning – general:&lt;/h2&gt;
-&lt;p&gt;•	Elements of statistical learning
-•	&lt;a href=&quot;https://pdfs.semanticscholar.org/9d07/cb2ffec8f5b63d6a329dec5b88987776303e.pdf&quot;&gt;Comparison of three evoluntionary algorithms: GA, PSO, and DE&lt;/a&gt;
-Market Making and Microstrucure:&lt;/p&gt;
+&lt;ol&gt;
+  &lt;li&gt;Elements of statistical learning&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://pdfs.semanticscholar.org/9d07/cb2ffec8f5b63d6a329dec5b88987776303e.pdf&quot;&gt;Comparison of three evoluntionary algorithms: GA, PSO, and DE&lt;/a&gt;
+Market Making and Microstrucure:&lt;/li&gt;
+&lt;/ol&gt;
 
 &lt;p&gt;&lt;strong&gt;Reason:&lt;/strong&gt; I can’t say enough how much I love the elements of statistical learning. Actually, whenever someone approaches me and asks what he/she should read as a intro to machine learning, I would recommend this right away if they have some quantitative background. Start with this book and stick only to it will save you tremendous amount of time going through meaningless, souless “machine learning” books that won’t even tell you how to infer on your parameters.&lt;/p&gt;
 
 &lt;h2 id=&quot;market-making-and-microstrucutre&quot;&gt;Market Making and Microstrucutre&lt;/h2&gt;
-&lt;p&gt;•	&lt;a href=&quot;https://arxiv.org/abs/1804.04216&quot;&gt;Market making via reinforcement learning&lt;/a&gt;
-•	&lt;a href=&quot;https://quantitativebrokers.com/wp-content/uploads/2017/05/Oct15-BTec1.pdf&quot;&gt;Cash Treasuries vs Futures on October 15, 2014&lt;/a&gt;
-•	&lt;a href=&quot;http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.139.1085&amp;amp;rep=rep1&amp;amp;type=pdf&quot;&gt;A stochastic model for order book dynamics&lt;/a&gt;
-•	&lt;a href=&quot;https://arxiv.org/abs/1202.6412&quot;&gt;Order book dynamics in liquid markets: limit theorems and diffusion approximations&lt;/a&gt;
-•	&lt;a href=&quot;https://papers.ssrn.com/sol3/papers.cfm?abstract_id=2970694&quot;&gt;The micro price: a high frequency estimator of future prices&lt;/a&gt;
-•	&lt;a href=&quot;http://users.iems.northwestern.edu/~armbruster/2007msande444/Hewlett2006%20price%20impact.pdf&quot;&gt;Clustering of order arrivals, price impact and trade path optimization&lt;/a&gt;&lt;/p&gt;
+&lt;ol&gt;
+  &lt;li&gt;&lt;a href=&quot;https://arxiv.org/abs/1804.04216&quot;&gt;Market making via reinforcement learning&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://quantitativebrokers.com/wp-content/uploads/2017/05/Oct15-BTec1.pdf&quot;&gt;Cash Treasuries vs Futures on October 15, 2014&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.139.1085&amp;amp;rep=rep1&amp;amp;type=pdf&quot;&gt;A stochastic model for order book dynamics&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://arxiv.org/abs/1202.6412&quot;&gt;Order book dynamics in liquid markets: limit theorems and diffusion approximations&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://papers.ssrn.com/sol3/papers.cfm?abstract_id=2970694&quot;&gt;The micro price: a high frequency estimator of future prices&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://users.iems.northwestern.edu/~armbruster/2007msande444/Hewlett2006%20price%20impact.pdf&quot;&gt;Clustering of order arrivals, price impact and trade path optimization&lt;/a&gt;&lt;/li&gt;
+&lt;/ol&gt;
 
 &lt;p&gt;&lt;strong&gt;Reason:&lt;/strong&gt; Most of the researches are on limit order book structures, and are targeted at buy side firms who want to figure out what their sell sides are calculating. However in the similar way it can be applied in sell side, e.g. model your client’s order arrival in a hawkes model!&lt;/p&gt;
 

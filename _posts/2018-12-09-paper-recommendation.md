@@ -50,19 +50,19 @@ Trading in general:
 **Reason:** some of the basics on pricing futures and forwards, what's the most famous way to approximate PDE in fixed income pricing, and reducing colinearlity. In trading, fixed income sees a lot of pairs trading strategy so I think it's essential to understand how the market works, and what pairs trading originated from to what problems you need to pay attention to while implementing.
 
 ## Machine Learning – general:
-•	Elements of statistical learning
-•	[Comparison of three evoluntionary algorithms: GA, PSO, and DE](https://pdfs.semanticscholar.org/9d07/cb2ffec8f5b63d6a329dec5b88987776303e.pdf)
+1. Elements of statistical learning
+2. [Comparison of three evoluntionary algorithms: GA, PSO, and DE](https://pdfs.semanticscholar.org/9d07/cb2ffec8f5b63d6a329dec5b88987776303e.pdf)
 Market Making and Microstrucure:
 
 **Reason:** I can't say enough how much I love the elements of statistical learning. Actually, whenever someone approaches me and asks what he/she should read as a intro to machine learning, I would recommend this right away if they have some quantitative background. Start with this book and stick only to it will save you tremendous amount of time going through meaningless, souless "machine learning" books that won't even tell you how to infer on your parameters.
 
 ## Market Making and Microstrucutre
-•	[Market making via reinforcement learning](https://arxiv.org/abs/1804.04216)
-•	[Cash Treasuries vs Futures on October 15, 2014](https://quantitativebrokers.com/wp-content/uploads/2017/05/Oct15-BTec1.pdf)
-•	[A stochastic model for order book dynamics](http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.139.1085&rep=rep1&type=pdf)
-•	[Order book dynamics in liquid markets: limit theorems and diffusion approximations](https://arxiv.org/abs/1202.6412)
-•	[The micro price: a high frequency estimator of future prices](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=2970694)
-•	[Clustering of order arrivals, price impact and trade path optimization](http://users.iems.northwestern.edu/~armbruster/2007msande444/Hewlett2006%20price%20impact.pdf)
+1. [Market making via reinforcement learning](https://arxiv.org/abs/1804.04216)
+2. [Cash Treasuries vs Futures on October 15, 2014](https://quantitativebrokers.com/wp-content/uploads/2017/05/Oct15-BTec1.pdf)
+3. [A stochastic model for order book dynamics](http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.139.1085&rep=rep1&type=pdf)
+4. [Order book dynamics in liquid markets: limit theorems and diffusion approximations](https://arxiv.org/abs/1202.6412)
+5. [The micro price: a high frequency estimator of future prices](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=2970694)
+6. [Clustering of order arrivals, price impact and trade path optimization](http://users.iems.northwestern.edu/~armbruster/2007msande444/Hewlett2006%20price%20impact.pdf)
 
 **Reason:** Most of the researches are on limit order book structures, and are targeted at buy side firms who want to figure out what their sell sides are calculating. However in the similar way it can be applied in sell side, e.g. model your client's order arrival in a hawkes model!
 
