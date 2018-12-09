@@ -4,27 +4,21 @@ title:  "2018 Papaer Reading List"
 date:   2018-12-09
 excerpt: "especially if you're interested in fixed income and market microstructure..."
 tag:
-- jekyll 
-- halve
-- blog
-- vangeltzo
-- theme
-- vangelis
+- Paper recommendation
 ---
 
-<a href="{{ site.url }}/images/halve-home-image.png"><img src="{{ site.url }}/images/halve-home-image.png" alt="Home Page of Halve"></a>  
+
 
 2018 is coming to an end, and by the end of this year I picked up a new hobbit - answering quesitons on stack exchange (more specifically on [quant fiance]( https://quant.stackexchange.com/)). It appears that a lot of times I see questions iterating over the same idea, and it got me wonder what if we can have a centralized paper recommendation for anyone interested in quant finance, to start from the essentials and build a good foundation.  
 
 So I decided to open this blog and share my reserves and interests with the folks. As a easy start, I will give a recommended reading list for understanding basics in some subfields of quant finance, and deeper digging in fixed income and market microstrucutre (I'm more focused on these).
 
 You'll find in this article: 
-1. Algo Trading
-2. Modern Portfolio Management
-3. Execution
-4. Fixed Income
-5. Machine Learning - general
-6. Market Making and Microstructure
+1. Modern Portfolio Management
+2. Execution
+3. Fixed Income
+4. Machine Learning - general
+5. Market Making and Microstructure
 
 **disclamer: I won't write recommendatin reason for most of the articles
 
@@ -72,13 +66,4 @@ Market Making and Microstrucure:
 
 That'd be all for now. 
 
-
-## Questions?
-
-Found a bug or aren't quite sure how something works? By all means [file a GitHub Issue](https://github.com/TaylanTatli/Halve/issues/new). And if you make something cool with this theme feel free to let me know.
-
 ---
-
-## License
-
-This theme is free and open source software, distributed under the MIT License. So feel free to use this Jekyll theme on your site without linking back to me or including a disclaimer.
