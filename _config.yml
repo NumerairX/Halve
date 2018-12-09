@@ -2,7 +2,7 @@
 title: NumerairX
 description: Weekly Quant Struggles
 url: //numerairX.github.io
-logo: halve.png                                       # Site logo
+logo: logo.png                                       # Site logo
 locale: en_US
 
 # Left Block Images
@@ -31,10 +31,10 @@ sass:
 # Social Links
 #email:             email
 #google.plus:        username
-twitter:            username
+twitter:            jojotex
 #facebook:           username
-github:             username
-stackoverflow:     123456/username   from a "http://stackoverflow.com/users/123456/username" link
+github:             numerairX
+stackoverflow:     Jojo Tang   from a "https://quant.stackexchange.com/users/35028/jojo-tang" link
 #linkedin:          username
 #xing:              username
 #instagram:          username
@@ -52,7 +52,7 @@ stackoverflow:     123456/username   from a "http://stackoverflow.com/users/1234
 #keybase:           username
 #xmpp:              username@server.com
 #hackernews:        username
-behance:           username
+#behance:           username
 
 # Gems
 gems:
