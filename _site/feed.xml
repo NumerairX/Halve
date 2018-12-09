@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.7.4">Jekyll</generator><link href="//numerairx.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="//numerairx.github.io/" rel="alternate" type="text/html" /><updated>2018-12-09T17:18:21-05:00</updated><id>//numerairx.github.io/feed.xml</id><title type="html">NumerairX</title><subtitle>Weekly Quant Struggles</subtitle><entry><title type="html">2018 Paper Reading List</title><link href="//numerairx.github.io/paper-recommendation/" rel="alternate" type="text/html" title="2018 Paper Reading List" /><published>2018-12-09T00:00:00-05:00</published><updated>2018-12-09T00:00:00-05:00</updated><id>//numerairx.github.io/paper-recommendation</id><content type="html" xml:base="//numerairx.github.io/paper-recommendation/">&lt;p&gt;2018 is coming to an end, and by the end of this year I picked up a new hobby - answering quesitons on stack exchange (more specifically on &lt;a href=&quot;https://quant.stackexchange.com/&quot;&gt;quant fiance&lt;/a&gt;). It appears that a lot of times I see questions iterating over the same idea, and it made me wonder what if we can have a list of paper recommendations for anyone interested in quant finance, to start from the essentials and build a good foundation.&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.7.4">Jekyll</generator><link href="//numerairx.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="//numerairx.github.io/" rel="alternate" type="text/html" /><updated>2018-12-09T17:22:13-05:00</updated><id>//numerairx.github.io/feed.xml</id><title type="html">NumerairX</title><subtitle>Weekly Quant Struggles</subtitle><entry><title type="html">2018 Paper Reading List</title><link href="//numerairx.github.io/paper-recommendation/" rel="alternate" type="text/html" title="2018 Paper Reading List" /><published>2018-12-09T00:00:00-05:00</published><updated>2018-12-09T00:00:00-05:00</updated><id>//numerairx.github.io/paper-recommendation</id><content type="html" xml:base="//numerairx.github.io/paper-recommendation/">&lt;p&gt;2018 is coming to an end, and by the end of this year I picked up a new hobby - answering quesitons on stack exchange (more specifically on &lt;a href=&quot;https://quant.stackexchange.com/&quot;&gt;quant fiance&lt;/a&gt;). It appears that a lot of times I see questions iterating over the same idea, and it made me wonder what if we can have a list of paper recommendations for anyone interested in quant finance, to start from the essentials and build a good foundation.&lt;/p&gt;
 
 &lt;p&gt;So I decided to open this blog and share my reserves and interests with the folks. As a easy start, I will give a recommended reading list for understanding basics in some subfields of quant finance, and deeper digging in fixed income and market microstrucutre (I’m more focused on these).&lt;/p&gt;
 
@@ -15,17 +15,19 @@
 
 &lt;h4 id=&quot;modern-portfolio-management&quot;&gt;Modern portfolio management&lt;/h4&gt;
 &lt;ol&gt;
-  &lt;li&gt;Active Portfolio Management: A Quantitative Approach for Producing Superior Returns and Selecting Superior Money Managers.
-&lt;strong&gt;Reason&lt;/strong&gt;: If it is not THE book in this area. Was recommended by my professor Gordon Ritter (who recently won the buyside quant of the year, woah!!), for the class active portfolio management. Starting with CAPM, it goes deeper to how and what to attribute your return to. With this you’ll have the foundation on how to use basic regression in your portfolio for performance. It is mathematically straightforward and very easy to follow (understanding of linear algebra is sufficient I’d say).&lt;/li&gt;
+  &lt;li&gt;Active Portfolio Management: A Quantitative Approach for Producing Superior Returns and Selecting Superior Money Managers.&lt;/li&gt;
 &lt;/ol&gt;
+
+&lt;p&gt;&lt;strong&gt;Reason&lt;/strong&gt;: If it is not THE book in this area. Was recommended by my professor Gordon Ritter (who recently won the buyside quant of the year, woah!!), for the class active portfolio management. Starting with CAPM, it goes deeper to how and what to attribute your return to. With this you’ll have the foundation on how to use basic regression in your portfolio for performance. It is mathematically straightforward and very easy to follow (understanding of linear algebra is sufficient I’d say).&lt;/p&gt;
 
 &lt;h4 id=&quot;execution&quot;&gt;Execution&lt;/h4&gt;
 &lt;ol&gt;
   &lt;li&gt;Execution strategies in fixed income markets&lt;/li&gt;
   &lt;li&gt;Optimal execution of portfolio transactions&lt;/li&gt;
-  &lt;li&gt;Optimal Microstructure Trading with a Long-Term Utility Function
- &lt;strong&gt;Reason&lt;/strong&gt;: the first and second cover the 3rd generation foundation of optimal execution by Almgren, a must read. Third one is built upon on the previous and talks about maintaining neutrality while executing a market neutral portfolio.&lt;/li&gt;
+  &lt;li&gt;Optimal Microstructure Trading with a Long-Term Utility Function&lt;/li&gt;
 &lt;/ol&gt;
+
+&lt;p&gt;&lt;strong&gt;Reason&lt;/strong&gt;: the first and second cover the 3rd generation foundation of optimal execution by Almgren, a must read. Third one is built upon on the previous and talks about maintaining neutrality while executing a market neutral portfolio.&lt;/p&gt;
 
 &lt;h4 id=&quot;fixed-income-trading&quot;&gt;Fixed Income Trading:&lt;/h4&gt;
 &lt;p&gt;Pricing related:&lt;/p&gt;

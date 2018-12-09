@@ -24,13 +24,15 @@ You'll find in this article:
 
 #### Modern portfolio management
 1. Active Portfolio Management: A Quantitative Approach for Producing Superior Returns and Selecting Superior Money Managers.
+
 **Reason**: If it is not THE book in this area. Was recommended by my professor Gordon Ritter (who recently won the buyside quant of the year, woah!!), for the class active portfolio management. Starting with CAPM, it goes deeper to how and what to attribute your return to. With this you'll have the foundation on how to use basic regression in your portfolio for performance. It is mathematically straightforward and very easy to follow (understanding of linear algebra is sufficient I'd say).
 
 #### Execution
 1.	Execution strategies in fixed income markets
 2. Optimal execution of portfolio transactions
 3. Optimal Microstructure Trading with a Long-Term Utility Function
-    **Reason**: the first and second cover the 3rd generation foundation of optimal execution by Almgren, a must read. Third one is built upon on the previous and talks about maintaining neutrality while executing a market neutral portfolio.
+
+**Reason**: the first and second cover the 3rd generation foundation of optimal execution by Almgren, a must read. Third one is built upon on the previous and talks about maintaining neutrality while executing a market neutral portfolio.
 
 #### Fixed Income Trading:
 Pricing related:
