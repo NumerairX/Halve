@@ -31,10 +31,10 @@ sass:
 # Social Links
 #email:             email
 #google.plus:        username
-twitter:            jojotex085
+#twitter:            jojotex085
 #facebook:           username
 github:             numerairX
-stackoverflow:      jojo-Tang
+stackoverflow:      9761067/jojo-tang
 #linkedin:          username
 #xing:              username
 #instagram:          username
@@ -55,7 +55,7 @@ stackoverflow:      jojo-Tang
 #behance:           username
 
 # Gems
-gems:
+plugins:
   - jekyll-feed
   - jekyll-sitemap
   - jekyll-gist
