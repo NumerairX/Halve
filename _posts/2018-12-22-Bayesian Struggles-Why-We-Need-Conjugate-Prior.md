@@ -17,7 +17,7 @@ However, I  think because I had (a lot of) struggles, I can share better how the
 
 
 
-**How did we come to realize that we might need something called conjugate prior**?
+## How did we come to realize that we might need something called conjugate prior?
 
 Consider the example given by Bayes himself in his 1763 paper: let us roll a ball along unit interval $[0,1]$ with uniform probability of stopping anywhere in between. This ball finally stopped at distance $\theta$ and we then throw this ball for $n$ times. Denote the number of times ball stops before reaching $\theta$ as $x$, what can we learn about $\theta$ now (aka what is $p(\theta|x)$)?
 
@@ -42,7 +42,7 @@ However, if instead we take $Beta(\alpha,\beta)$ as our prior, our posterior the
 
 
 
-#####highlight:
+##### highlight:
 
 1. our posterior has the same form as prior which makes it easy to update
 
@@ -52,7 +52,7 @@ However, if instead we take $Beta(\alpha,\beta)$ as our prior, our posterior the
 
 
 
-##Did that really make much of a difference? Yes if we bring complicated integrals in the house!
+## Did that really make much of a difference? Yes if we bring complicated integrals in the house!
 
 let's imagine a slightly more complicated case, where you are trying to infer the parameters of your dataset, which you believe to follow normal distribution. You don't get nice property like $p(\theta)$ just equals to 1 and needs to do  $\int_{- \infty}^{\infty} \frac{1}{\sqrt{2\pi\sigma_0^2}} e^{\frac{-(\mu-\mu_0)^2}{2\sigma_0^2}} * \frac{1}{\sqrt{2\pi\sigma^2}} e^{\frac{-(x-\mu)^2}{2\sigma^2}} d\mu$ every time you update. This is actually why most times we want find nice conjugate priors to avoid computing high dimensional integration. The benefits will came clear after the below explanation.
 
@@ -60,7 +60,7 @@ let's imagine a slightly more complicated case, where you are trying to infer th
 
 > Consider i.i.d sample $X = (x_1,x_2, ..., x_n)$ are drawn from distribution  $N(\mu,\sigma^2)$ with **$\mu$ and $\sigma^2$ random**. Let $\tau = \frac{1}{\sigma^2}$, it is suffice to have parameter set $\theta = (\mu, \tau)$. 
 
-#####our goal: find $p(x|\mu,\tau)$**
+##### our goal: find $p(x|\mu,\tau)$**
 
 #####     -> Tricky part: find $p(\mu,\tau)$**
 
