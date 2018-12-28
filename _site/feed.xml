@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.7.4">Jekyll</generator><link href="//numerairx.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="//numerairx.github.io/" rel="alternate" type="text/html" /><updated>2018-12-28T18:10:35-05:00</updated><id>//numerairx.github.io/feed.xml</id><title type="html">NumerairX</title><subtitle>Weekly Quant Struggles</subtitle><entry><title type="html">Bayesian Struggles: why we need conjugate prior</title><link href="//numerairx.github.io/Bayesian-Struggles-Why-We-Need-Conjugate-Prior/" rel="alternate" type="text/html" title="Bayesian Struggles: why we need conjugate prior" /><published>2018-12-22T00:00:00-05:00</published><updated>2018-12-22T00:00:00-05:00</updated><id>//numerairx.github.io/Bayesian%20Struggles-Why-We-Need-Conjugate-Prior</id><content type="html" xml:base="//numerairx.github.io/Bayesian-Struggles-Why-We-Need-Conjugate-Prior/">&lt;p&gt;I want to start this first post of the series of Bayesian stats with this meme.
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.7.4">Jekyll</generator><link href="//numerairx.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="//numerairx.github.io/" rel="alternate" type="text/html" /><updated>2018-12-28T18:17:28-05:00</updated><id>//numerairx.github.io/feed.xml</id><title type="html">NumerairX</title><subtitle>Weekly Quant Struggles</subtitle><entry><title type="html">Bayesian Struggles: why we need conjugate prior</title><link href="//numerairx.github.io/Bayesian-Struggles-Why-We-Need-Conjugate-Prior/" rel="alternate" type="text/html" title="Bayesian Struggles: why we need conjugate prior" /><published>2018-12-22T00:00:00-05:00</published><updated>2018-12-22T00:00:00-05:00</updated><id>//numerairx.github.io/Bayesian%20Struggles-Why-We-Need-Conjugate-Prior</id><content type="html" xml:base="//numerairx.github.io/Bayesian-Struggles-Why-We-Need-Conjugate-Prior/">&lt;p&gt;I want to start this first post of the series of Bayesian stats with this meme.
 &lt;a href=&quot;//numerairX.github.io/images/bayesfun.png&quot;&gt;&lt;img src=&quot;//numerairX.github.io/images/bayesfun.png&quot; alt=&quot;bayesian meme&quot; /&gt;&lt;/a&gt;&lt;br /&gt;
 (image from &lt;a href=&quot;https://www2.isye.gatech.edu/~brani/isyebayes/jokes.html&quot;&gt;Bayesian Fun&lt;/a&gt;)&lt;/p&gt;
 
@@ -26,22 +26,13 @@
   &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;blockquote&gt;
-  &lt;table&gt;
-    &lt;tbody&gt;
-      &lt;tr&gt;
-        &lt;td&gt;$p(x&lt;/td&gt;
-        &lt;td&gt;\theta) = \int_{0}^{1} \theta^x (1-\theta)^{n-x} d\theta$&lt;/td&gt;
-      &lt;/tr&gt;
-    &lt;/tbody&gt;
-  &lt;/table&gt;
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-yaml&quot; data-lang=&quot;yaml&quot;&gt; &lt;span class=&quot;s&quot;&gt;$p(x|\theta) = \int_{0}^{1} \theta^x (1-\theta)^{n-x} d\theta$&lt;/span&gt; 
 
-  &lt;p&gt;​	    $=\frac{1^{k+1}(1-1)^{n-k}}{k+1}-\frac{0^{k+1}(1-0)^{n-k}}{k+1}+\frac{n-k}{k+1}\int_0^1 p^{k+1}(1-p)^{n-k-1}\$&lt;/p&gt;
+ &lt;span class=&quot;s&quot;&gt;​&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;	&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;    $=\frac{1^{k+1}(1-1)^{n-k}}{k+1}-\frac{0^{k+1}(1-0)^{n-k}}{k+1}+\frac{n-k}{k+1}\int_0^1 p^{k+1}(1-p)^{n-k-1}\\$&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;	&lt;/span&gt; 
 
-  &lt;p&gt;​	    $=  …$ keep doing integration by parts&lt;/p&gt;
+ &lt;span class=&quot;s&quot;&gt;​&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;	&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;    $=  ...$ keep doing integration by parts&lt;/span&gt;
 
-  &lt;p&gt;​	    $= \frac{x!(n-x)!}{(n+1)!}$&lt;/p&gt;
-&lt;/blockquote&gt;
+ &lt;span class=&quot;s&quot;&gt;​&lt;/span&gt;&lt;span class=&quot;err&quot;&gt;	&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;    $= \frac{x!(n-x)!}{(n+1)!}$&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
 &lt;p&gt;which verifies to be beta distribution of $\alpha = x+1, \beta = n-x+1$.&lt;/p&gt;
 
@@ -64,7 +55,7 @@
   &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;p&gt;&lt;strong&gt;&lt;em&gt;highlight:&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;#####highlight:&lt;/p&gt;
 
 &lt;ol&gt;
   &lt;li&gt;
@@ -77,7 +68,7 @@
   &lt;/li&gt;
 &lt;/ol&gt;
 
-&lt;p&gt;&lt;strong&gt;Did that really make much of a difference? Yes if we bring complicated integrals in the house!&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;##Did that really make much of a difference? Yes if we bring complicated integrals in the house!&lt;/p&gt;
 
 &lt;p&gt;let’s imagine a slightly more complicated case, where you are trying to infer the parameters of your dataset, which you believe to follow normal distribution. You don’t get nice property like $p(\theta)$ just equals to 1 and needs to do  $\int_{- \infty}^{\infty} \frac{1}{\sqrt{2\pi\sigma_0^2}} e^{\frac{-(\mu-\mu_0)^2}{2\sigma_0^2}} * \frac{1}{\sqrt{2\pi\sigma^2}} e^{\frac{-(x-\mu)^2}{2\sigma^2}} d\mu$ every time you update. This is actually why most times we want find nice conjugate priors to avoid computing high dimensional integration. The benefits will came clear after the below explanation.&lt;/p&gt;
 
@@ -88,13 +79,13 @@
 &lt;table&gt;
   &lt;tbody&gt;
     &lt;tr&gt;
-      &lt;td&gt;**our goal: find $p(x&lt;/td&gt;
+      &lt;td&gt;#####our goal: find $p(x&lt;/td&gt;
       &lt;td&gt;\mu,\tau)$**&lt;/td&gt;
     &lt;/tr&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;p&gt;&lt;strong&gt;-&amp;gt; Tricky part: find $p(\mu,\tau)$&lt;/strong&gt;&lt;/p&gt;
+&lt;h5 id=&quot;--tricky-part-find-pmutau&quot;&gt;-&amp;gt; Tricky part: find $p(\mu,\tau)$**&lt;/h5&gt;
 
 &lt;p&gt;Similarly to the problem of only $\sigma^2$ fixed, consider a gamma prior, $\tau \propto \Gamma(\alpha,\beta) $, and we use the parametrization that PDF is $ \frac{\beta^\alpha}{\Gamma(\alpha)} x^{\alpha-1} e^{-x\beta}$ then for $\sigma^2$ is (obviously) an inverse gamma distribution, aka $\sigma^2 \propto IG(\alpha,\beta)$.&lt;/p&gt;
 

@@ -23,14 +23,15 @@ Consider the example given by Bayes himself in his 1763 paper: let us roll a bal
 
 In this case our prior is no longer just our *'belief'* but a physics fact. We understand that $p(\theta)$ is 1 since it follows uniform distribution, and $p(x|\theta)$ is just binomial probability density function.
 
-> $p(x|\theta) = \int_{0}^{1} \theta^x (1-\theta)^{n-x} d\theta$ 
->
-> ​	    $=\frac{1^{k+1}(1-1)^{n-k}}{k+1}-\frac{0^{k+1}(1-0)^{n-k}}{k+1}+\frac{n-k}{k+1}\int_0^1 p^{k+1}(1-p)^{n-k-1}\\$	 
->
-> ​	    $=  ...$ keep doing integration by parts
->
-> ​	    $= \frac{x!(n-x)!}{(n+1)!}$
+{% highlight yaml %}
+ $p(x|\theta) = \int_{0}^{1} \theta^x (1-\theta)^{n-x} d\theta$ 
 
+ ​	    $=\frac{1^{k+1}(1-1)^{n-k}}{k+1}-\frac{0^{k+1}(1-0)^{n-k}}{k+1}+\frac{n-k}{k+1}\int_0^1 p^{k+1}(1-p)^{n-k-1}\\$	 
+
+ ​	    $=  ...$ keep doing integration by parts
+
+ ​	    $= \frac{x!(n-x)!}{(n+1)!}$
+{% endhighlight%}
 
 
 which verifies to be beta distribution of $\alpha = x+1, \beta = n-x+1$.
@@ -41,7 +42,7 @@ However, if instead we take $Beta(\alpha,\beta)$ as our prior, our posterior the
 
 
 
-***highlight:***
+#####highlight:
 
 1. our posterior has the same form as prior which makes it easy to update
 
@@ -51,7 +52,7 @@ However, if instead we take $Beta(\alpha,\beta)$ as our prior, our posterior the
 
 
 
-**Did that really make much of a difference? Yes if we bring complicated integrals in the house!** 
+##Did that really make much of a difference? Yes if we bring complicated integrals in the house!
 
 let's imagine a slightly more complicated case, where you are trying to infer the parameters of your dataset, which you believe to follow normal distribution. You don't get nice property like $p(\theta)$ just equals to 1 and needs to do  $\int_{- \infty}^{\infty} \frac{1}{\sqrt{2\pi\sigma_0^2}} e^{\frac{-(\mu-\mu_0)^2}{2\sigma_0^2}} * \frac{1}{\sqrt{2\pi\sigma^2}} e^{\frac{-(x-\mu)^2}{2\sigma^2}} d\mu$ every time you update. This is actually why most times we want find nice conjugate priors to avoid computing high dimensional integration. The benefits will came clear after the below explanation.
 
@@ -59,9 +60,9 @@ let's imagine a slightly more complicated case, where you are trying to infer th
 
 > Consider i.i.d sample $X = (x_1,x_2, ..., x_n)$ are drawn from distribution  $N(\mu,\sigma^2)$ with **$\mu$ and $\sigma^2$ random**. Let $\tau = \frac{1}{\sigma^2}$, it is suffice to have parameter set $\theta = (\mu, \tau)$. 
 
-**our goal: find $p(x|\mu,\tau)$**
+#####our goal: find $p(x|\mu,\tau)$**
 
-  **-> Tricky part: find $p(\mu,\tau)$**
+#####     -> Tricky part: find $p(\mu,\tau)$**
 
 Similarly to the problem of only $\sigma^2$ fixed, consider a gamma prior, $\tau \propto \Gamma(\alpha,\beta) $, and we use the parametrization that PDF is $ \frac{\beta^\alpha}{\Gamma(\alpha)} x^{\alpha-1} e^{-x\beta}$ then for $\sigma^2$ is (obviously) an inverse gamma distribution, aka $\sigma^2 \propto IG(\alpha,\beta)$.
 
