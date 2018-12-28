@@ -1,4 +1,152 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.7.4">Jekyll</generator><link href="//numerairx.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="//numerairx.github.io/" rel="alternate" type="text/html" /><updated>2018-12-09T20:12:28-05:00</updated><id>//numerairx.github.io/feed.xml</id><title type="html">NumerairX</title><subtitle>Weekly Quant Struggles</subtitle><entry><title type="html">2018 Paper and Book Reading List</title><link href="//numerairx.github.io/paper-recommendation/" rel="alternate" type="text/html" title="2018 Paper and Book Reading List" /><published>2018-12-09T00:00:00-05:00</published><updated>2018-12-09T00:00:00-05:00</updated><id>//numerairx.github.io/paper-recommendation</id><content type="html" xml:base="//numerairx.github.io/paper-recommendation/">&lt;p&gt;2018 is coming to an end, and by the end of this year I picked up a new hobby - answering quesitons on stack exchange (more specifically on &lt;a href=&quot;https://quant.stackexchange.com/&quot;&gt;quant fiance&lt;/a&gt;). It appears that a lot of times I see questions iterating over the same idea, and it made me wonder what if we can have a list of paper recommendations for anyone interested in quant finance, to start from the essentials and build a good foundation.&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.7.4">Jekyll</generator><link href="//numerairx.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="//numerairx.github.io/" rel="alternate" type="text/html" /><updated>2018-12-28T17:59:18-05:00</updated><id>//numerairx.github.io/feed.xml</id><title type="html">NumerairX</title><subtitle>Weekly Quant Struggles</subtitle><entry><title type="html">Bayesian Struggles: why we need conjugate prior</title><link href="//numerairx.github.io/Bayesian-Struggles-Why-We-Need-Conjugate-Prior/" rel="alternate" type="text/html" title="Bayesian Struggles: why we need conjugate prior" /><published>2018-12-22T00:00:00-05:00</published><updated>2018-12-22T00:00:00-05:00</updated><id>//numerairx.github.io/Bayesian%20Struggles-Why-We-Need-Conjugate-Prior</id><content type="html" xml:base="//numerairx.github.io/Bayesian-Struggles-Why-We-Need-Conjugate-Prior/">&lt;p&gt;I want to start this first post of the series of Bayesian stats with this meme.
+&lt;a href=&quot;//numerairX.github.io/images/bayesfun.png&quot;&gt;&lt;img src=&quot;//numerairX.github.io/images/bayesfun.png&quot; alt=&quot;bayesian meme&quot; /&gt;&lt;/a&gt;&lt;br /&gt;
+(image from &lt;a href=&quot;https://www2.isye.gatech.edu/~brani/isyebayes/jokes.html&quot;&gt;Bayesian Fun&lt;/a&gt;)&lt;/p&gt;
+
+&lt;p&gt;It is also important to make sure my dear reader(s) knows that I am by all means not an expert in statistics (let me know if u found mistakes!). I came from an applied math background but had no interest in taking stats in college (thought it was easy and too formulaic at that time, naive!!). So I am almost completely self-taught in this subject and prone to interpret things in a familiar way to help me understand.&lt;/p&gt;
+
+&lt;p&gt;However, I  think because I had (a lot of) struggles, I can share better how the logic flows to overcome them.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;How did we come to realize that we might need something called conjugate prior&lt;/strong&gt;?&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Consider the example given by Bayes himself in his 1763 paper: let us roll a ball along unit interval $[0,1]$ with uniform probability of stopping anywhere in between. This ball finally stopped at distance $\theta$ and we then throw this ball for $n$ times. Denote the number of times ball stops before reaching $\theta$ as $x$, what can we learn about $\theta$ now (aka what is $p(\theta&lt;/td&gt;
+      &lt;td&gt;x)$)?&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;table&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;In this case our prior is no longer just our &lt;em&gt;‘belief’&lt;/em&gt; but a physics fact. We understand that $p(\theta)$ is 1 since it follows uniform distribution, and $p(x&lt;/td&gt;
+      &lt;td&gt;\theta)$ is just binomial probability density function.&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;blockquote&gt;
+  &lt;table&gt;
+    &lt;tbody&gt;
+      &lt;tr&gt;
+        &lt;td&gt;$p(x&lt;/td&gt;
+        &lt;td&gt;\theta) = \int_{0}^{1} \theta^x (1-\theta)^{n-x} d\theta$&lt;/td&gt;
+      &lt;/tr&gt;
+    &lt;/tbody&gt;
+  &lt;/table&gt;
+
+  &lt;p&gt;​	    $=\frac{1^{k+1}(1-1)^{n-k}}{k+1}-\frac{0^{k+1}(1-0)^{n-k}}{k+1}+\frac{n-k}{k+1}\int_0^1 p^{k+1}(1-p)^{n-k-1}\$&lt;/p&gt;
+
+  &lt;p&gt;​	    $=  …$ keep doing integration by parts&lt;/p&gt;
+
+  &lt;p&gt;​	    $= \frac{x!(n-x)!}{(n+1)!}$&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;which verifies to be beta distribution of $\alpha = x+1, \beta = n-x+1$.&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;With all the elements known, by Baye’s theorem $p(\theta&lt;/td&gt;
+      &lt;td&gt;x) \propto p(x&lt;/td&gt;
+      &lt;td&gt;\theta)p(\theta) $, our posterior follows beta distribution of the above parameters.&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;table&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;However, if instead we take $Beta(\alpha,\beta)$ as our prior, our posterior then follows $p(x&lt;/td&gt;
+      &lt;td&gt;\theta)p(\theta) \propto \theta^x(1-\theta)^{n-x}\theta^{\alpha-1}(1-\theta)^{\beta-1} \sim Beta(\alpha+x,\beta+n-x)$.&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;&lt;strong&gt;&lt;em&gt;highlight:&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;
+    &lt;p&gt;our posterior has the same form as prior which makes it easy to update&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;prior now also have explanation power:&lt;/p&gt;
+
+    &lt;p&gt;while we roll the ball, each time it stops before $\theta$, it corresponds to the probability density of binomial as in increase of successful trail (aka $x+1$), so imagine if we were live-recording the rolling, we would add 1 to $\alpha$.  If it exceeds the line, we would add 1 to $\beta$.  Very intuitive.&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;&lt;strong&gt;Did that really make much of a difference? Yes if we bring complicated integrals in the house!&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;let’s imagine a slightly more complicated case, where you are trying to infer the parameters of your dataset, which you believe to follow normal distribution. You don’t get nice property like $p(\theta)$ just equals to 1 and needs to do  $\int_{- \infty}^{\infty} \frac{1}{\sqrt{2\pi\sigma_0^2}} e^{\frac{-(\mu-\mu_0)^2}{2\sigma_0^2}} * \frac{1}{\sqrt{2\pi\sigma^2}} e^{\frac{-(x-\mu)^2}{2\sigma^2}} d\mu$ every time you update. This is actually why most times we want find nice conjugate priors to avoid computing high dimensional integration. The benefits will came clear after the below explanation.&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Consider i.i.d sample $X = (x_1,x_2, …, x_n)$ are drawn from distribution  $N(\mu,\sigma^2)$ with &lt;strong&gt;$\mu$ and $\sigma^2$ random&lt;/strong&gt;. Let $\tau = \frac{1}{\sigma^2}$, it is suffice to have parameter set $\theta = (\mu, \tau)$.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;table&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;**our goal: find $p(x&lt;/td&gt;
+      &lt;td&gt;\mu,\tau)$**&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;&lt;strong&gt;-&amp;gt; Tricky part: find $p(\mu,\tau)$&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Similarly to the problem of only $\sigma^2$ fixed, consider a gamma prior, $\tau \propto \Gamma(\alpha,\beta) $, and we use the parametrization that PDF is $ \frac{\beta^\alpha}{\Gamma(\alpha)} x^{\alpha-1} e^{-x\beta}$ then for $\sigma^2$ is (obviously) an inverse gamma distribution, aka $\sigma^2 \propto IG(\alpha,\beta)$.&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;However, I did struggle a while understanding what $\mu$ should be because it seems independent of $\sigma^2$. But if $\mu$ and $\sigma^2$ are independent of each other, posterior won’t be in inverse gamma format so we end up having nothing handy. Later from the wisdom of my professor, he made that $\mu&lt;/td&gt;
+      &lt;td&gt;\tau \propto N(v, \frac{1}{k\tau})$ for $v, k$ being some real number and of course $k&amp;gt;0$. The reason behind is given both conditioned on $X$ , $\mu$ and $\sigma^2$ should be dependent.&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;table&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;The full prior density $p(\tau,\mu)$  is then $p(\tau)p(\mu&lt;/td&gt;
+      &lt;td&gt;\tau) = \frac{\beta^\alpha}{\Gamma(\alpha)} x^{\alpha-1} exp(-x\beta) \sqrt{\frac{k\tau}{2\pi}} exp({-\frac{k\tau}{2}(\mu-v)^2}) $ &lt;strong&gt;(1)&lt;/strong&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;table&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;and posterior $p(\mu,\tau&lt;/td&gt;
+      &lt;td&gt;x) = $	&lt;strong&gt;(1)&lt;/strong&gt; * $(\frac{\tau}{2\pi})^{\frac{n}{2}} exp({\frac{-\tau}{2}}\sum_{i}(x_i-\mu)^2)$&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;Omitting some merging and substituting tricks that nobody wants to see, we come down to:&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;$p(\mu,\tau&lt;/td&gt;
+      &lt;td&gt;x) \propto \tau^{\alpha’-1/2} exp(-\tau(\beta’ + \frac{k’}{2}(\mu-v’)^2))$&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;$\alpha’ = \alpha + \frac{n}{2}$&lt;/p&gt;
+
+&lt;p&gt;$\beta’ = \beta + \frac{1}{2} \frac{nk}{n+k}(\bar{x}-v)^2 + \frac{1}{2} \sum_{i} (x_i-x)^2$&lt;/p&gt;
+
+&lt;p&gt;$k’ = k+n’$&lt;/p&gt;
+
+&lt;p&gt;$v’ = \frac{kv+n\bar{x}}{k+n}$&lt;/p&gt;
+
+&lt;p&gt;leaves only four simple algebra to maintain at each update.&lt;/p&gt;
+
+&lt;h2 id=&quot;to-end-this-article-i-will-share-a-fun-read-a-catalog-of-noninformative-priors-i-found-a-while-ago&quot;&gt;To end this article, I will share a fun read, &lt;a href=&quot;http://www.stats.org.uk/priors/noninformative/YangBerger1998.pdf&quot;&gt;A Catalog of Noninformative Priors&lt;/a&gt; I found a while ago.&lt;/h2&gt;</content><author><name></name></author><category term="statistics" /><summary type="html">starting with two simple examples...</summary></entry><entry><title type="html">2018 Paper and Book Reading List</title><link href="//numerairx.github.io/paper-recommendation/" rel="alternate" type="text/html" title="2018 Paper and Book Reading List" /><published>2018-12-09T00:00:00-05:00</published><updated>2018-12-09T00:00:00-05:00</updated><id>//numerairx.github.io/paper-recommendation</id><content type="html" xml:base="//numerairx.github.io/paper-recommendation/">&lt;p&gt;2018 is coming to an end, and by the end of this year I picked up a new hobby - answering quesitons on stack exchange (more specifically on &lt;a href=&quot;https://quant.stackexchange.com/&quot;&gt;quant fiance&lt;/a&gt;). It appears that a lot of times I see questions iterating over the same idea, and it made me wonder what if we can have a list of paper recommendations for anyone interested in quant finance, to start from the essentials and build a good foundation.&lt;/p&gt;
 
 &lt;p&gt;So I decided to open this blog and share my reserves and interests with the folks. As a easy start, I will give a recommended reading list for understanding basics in some subfields of quant finance, and deeper digging in fixed income and market microstrucutre (I’m more focused on these).&lt;/p&gt;
 
