@@ -60,7 +60,7 @@ $p(x|\theta)p(\theta) \propto \theta^x(1-\theta)^{n-x}\theta^{\alpha-1}(1-\theta
 
 let's imagine a slightly more complicated case, where you are trying to infer the parameters of your dataset, which you believe to follow normal distribution. 
 You don't get nice property like $p(\theta)$ just equals to 1 and needs to do  
-$\int_{- \infty}^{\infty} \frac{1}{\sqrt{2\pi\sigma_0^2}} e^{\frac{-(\mu-\mu_0)^2}{2\sigma_0^2}} * \frac{1}{\sqrt{2\pi\sigma^2}} e^{\frac{-(x-\mu)^2}{2\sigma^2}} d\mu$
+$\int_{- \infty}^{\infty} \frac{1}{\sqrt{2\pi\sigma_0^2}} e^{\frac{-(\mu-\mu_0)^2}{2\sigma_0^2}} * \frac{1}{\sqrt{2\pi\sigma^2}} e^{\frac{-(x-\mu)^2}{2\sigma^2}} d\mu$.css("font-size","80%")
  every time you update. This is actually why most times we want find nice conjugate priors to avoid computing high dimensional integration. The benefits will came clear after the below explanation.
 
 
@@ -78,22 +78,22 @@ But if $\mu$ and $\sigma^2$ are independent of each other, posterior won't be in
 Later from the wisdom of my professor, he made that $\mu|\tau \propto N(v, \frac{1}{k\tau})$ for $v, k$ being some real number and of course $k>0$. 
 The reason behind is given both conditioned on $X$ , $\mu$ and $\sigma^2$ should be dependent. 
 
-The full prior density $p(\tau,\mu)$ is then 
-$p(\tau)p(\mu|\tau) = \frac{\beta^\alpha}{\Gamma(\alpha)} x^{\alpha-1} exp(-x\beta) \sqrt{\frac{k\tau}{2\pi}} exp({-\frac{k\tau}{2}(\mu-v)^2}) $ **(1)**
+The full prior density $p(\tau,\mu)$ is then $p(\tau)p(\mu|\tau)$.css("font-size","80%")
+$= \frac{\beta^\alpha}{\Gamma(\alpha)} x^{\alpha-1} exp(-x\beta) \sqrt{\frac{k\tau}{2\pi}} exp({-\frac{k\tau}{2}(\mu-v)^2})$.css("font-size","80%") **(1)**
 
-and posterior $p(\mu,\tau|x) = $**(1)** * $(\frac{\tau}{2\pi})^{\frac{n}{2}} exp({\frac{-\tau}{2}}\sum_{i}(x_i-\mu)^2)$
+and posterior $p(\mu,\tau|x) = $**(1)** * $(\frac{\tau}{2\pi})^{\frac{n}{2}} exp({\frac{-\tau}{2}}\sum_{i}(x_i-\mu)^2)$.css("font-size","80%")
 
 Omitting some merging and substituting tricks that nobody wants to see, we come down to:
 
-$p(\mu,\tau|x)\propto\tau^{\alpha'-1/2}exp(-\tau(\beta' + \frac{k'}{2}(\mu-v')^2))$
+$p(\mu,\tau|x)\propto\tau^{\alpha'-1/2}exp(-\tau(\beta' + \frac{k'}{2}(\mu-v')^2))$.css("font-size","80%")
 
-$\alpha' = \alpha + \frac{n}{2}$
+$\alpha' = \alpha + \frac{n}{2}$.css("font-size","80%")
 
-$\beta' = \beta + \frac{1}{2} \frac{nk}{n+k}(\bar{x}-v)^2 + \frac{1}{2} \sum_{i} (x_i-x)^2$
+$\beta' = \beta + \frac{1}{2} \frac{nk}{n+k}(\bar{x}-v)^2 + \frac{1}{2} \sum_{i} (x_i-x)^2$.css("font-size","80%")
 
-$k' = k+n'$
+$k' = k+n'$.css("font-size","80%")
 
-$v' = \frac{kv+n\bar{x}}{k+n}$
+$v' = \frac{kv+n\bar{x}}{k+n}$.css("font-size","80%")
 
 leaves only four simple algebra to maintain at each update.
 
