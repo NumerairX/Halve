@@ -17,23 +17,27 @@ However, I  think because I had (a lot of) struggles, I can share better how the
 
 
 
-##### How did we come to realize that we might need something called conjugate prior?
+### How did we come to realize that we might need something called conjugate prior?
 
-Consider the example given by Bayes himself in his 1763 paper: let us roll a ball along unit interval $[0,1]$ with uniform probability of stopping anywhere in between. This ball finally stopped at distance $\theta$ and we then throw this ball for $n$ times. Denote the number of times ball stops before reaching $\theta$ as $x$, what can we learn about $\theta$ now (aka what is $p(\theta|x)$)?
+Consider the example given by Bayes himself in his 1763 paper: let us roll a ball along unit interval $[0,1]$ with uniform probability of stopping anywhere in between. 
+This ball finally stopped at distance $\theta$ and we then throw this ball for $n$ times. Denote the number of times ball stops before reaching 
+$\theta$ as $x$, what can we learn about $\theta$ now (aka what is $p(\theta|x)$)?
 
-In this case our prior is no longer just our *'belief'* but a physics fact. We understand that $p(\theta)$ is 1 since it follows uniform distribution, and $p(x|\theta)$ is just binomial probability density function.
+In this case our prior is no longer just our *'belief'* but a physics fact. We understand that $p(\theta)$ is 1 since it follows uniform distribution, 
+and $p(x|\theta)$ is just binomial probability density function.
 
 $p(x|\theta) = \int_{0}^{1} \theta^x (1-\theta)^{n-x} d\theta$ 
 
- ​	    $=\frac{1^{k+1}(1-1)^{n-k}}{k+1}-\frac{0^{k+1}(1-0)^{n-k}}{k+1}+\frac{n-k}{k+1}\int_0^1 p^{k+1}(1-p)^{n-k-1}\\$	 
+$=\frac{1^{k+1}(1-1)^{n-k}}{k+1}-\frac{0^{k+1}(1-0)^{n-k}}{k+1}+\frac{n-k}{k+1}\int_0^1 p^{k+1}(1-p)^{n-k-1}\\$	 
 
- ​	    $=  ...$ keep doing integration by parts
+$=  ...$ keep doing integration by parts
 
- ​	    $= \frac{x!(n-x)!}{(n+1)!}$
+$= \frac{x!(n-x)!}{(n+1)!}$
 
 
 
 which verifies to be beta distribution of $\alpha = x+1, \beta = n-x+1$.
+
 With all the elements known, by Baye's theorem $p(\theta|x) \propto p(x|\theta)p(\theta) $, our posterior follows beta distribution of the above parameters.
 However, if instead we take $Beta(\alpha,\beta)$ as our prior, our posterior then follows:
 $p(x|\theta)p(\theta) \propto \theta^x(1-\theta)^{n-x}\theta^{\alpha-1}(1-\theta)^{\beta-1} \sim Beta(\alpha+x,\beta+n-x)$.
@@ -80,7 +84,7 @@ and posterior $p(\mu,\tau|x) = $**(1)** * $(\frac{\tau}{2\pi})^{\frac{n}{2}} exp
 
 Omitting some merging and substituting tricks that nobody wants to see, we come down to:
 
-$p(\mu,\tau|x) \propto \tau^{\alpha'-1/2} exp(-\tau(\beta' + \frac{k'}{2}(\mu-v')^2))$
+$p(\mu,\tau|x)\propto\tau^{\alpha'-1/2}exp(-\tau(\beta' + \frac{k'}{2}(\mu-v')^2))$
 
 $\alpha' = \alpha + \frac{n}{2}$
 
