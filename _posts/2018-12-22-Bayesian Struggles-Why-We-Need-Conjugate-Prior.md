@@ -27,13 +27,10 @@ In this case our prior is no longer just our *'belief'* but a physics fact. We u
 and $p(x|\theta)$ is just binomial probability density function.
 
 $p(x|\theta)=\int_{0}^{1}\theta^x(1-\theta)^{n-x}d\theta$ 
-
-	$=\frac{1^{k+1}(1-1)^{n-k}}{k+1}-\frac{0^{k+1}(1-0)^{n-k}}{k+1}$
-	$+\frac{n-k}{k+1}\int_0^1 p^{k+1}(1-p)^{n-k-1}$	 
-
-	$=  ...$ keep doing integration by parts
-
-	$= \frac{x!(n-x)!}{(n+1)!}$
+$           =\frac{1^{k+1}(1-1)^{n-k}}{k+1}-\frac{0^{k+1}(1-0)^{n-k}}{k+1}$
+$             +\frac{n-k}{k+1}\int_0^1 p^{k+1}(1-p)^{n-k-1}$	 
+$           =  ...$ keep doing integration by parts
+$           = \frac{x!(n-x)!}{(n+1)!}$
 
 
 
@@ -81,7 +78,8 @@ The reason behind is given both conditioned on $X$ , $\mu$ and $\sigma^2$ should
 The full prior density $p(\tau,\mu)$ is then $p(\tau)p(\mu|\tau)$
 $ = \frac{\beta^\alpha}{\Gamma(\alpha)} x^{\alpha-1} e^{(-x\beta)} \sqrt{\frac{k\tau}{2\pi}} e^{({-\frac{k\tau}{2}(\mu-v)^2})}$ **(1)**
 
-and posterior $p(\mu,\tau|x)=$(1)*$(\frac{\tau}{2\pi})^{\frac{n}{2}}e^{({\frac{-\tau}{2}}\sum_{i}(x_i-\mu)^2)}$
+and posterior $p(\mu,\tau|x)$
+           = (1)*$(\frac{\tau}{2\pi})^{\frac{n}{2}}e^{({\frac{-\tau}{2}}\sum_{i}(x_i-\mu)^2)}$
 
 Omitting some merging and substituting tricks that nobody wants to see, we come down to:
 
