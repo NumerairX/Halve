@@ -26,7 +26,8 @@ $\theta$ as $x$, what can we learn about $\theta$ now (aka what is $p(\theta|x)$
 In this case our prior is no longer just our *'belief'* but a physics fact. We understand that $p(\theta)$ is 1 since it follows uniform distribution, 
 and $p(x|\theta)$ is just binomial probability density function.
 
-$p(x|\theta)=\int_{0}^{1}\theta^x(1-\theta)^{n-x}d\theta$ 
+$p(x|\theta)=$
+$           \int_{0}^{1}\theta^x(1-\theta)^{n-x}d\theta$ 
 
 $           =\frac{1^{k+1}(1-1)^{n-k}}{k+1}-\frac{0^{k+1}(1-0)^{n-k}}{k+1}$
 
@@ -70,7 +71,7 @@ $\int_{- \infty}^{\infty} \frac{1}{\sqrt{2\pi\sigma_0^2}} e^{\frac{-(\mu-\mu_0)^
 
 #### Our goal: find $p(x|\mu,\tau)$
 
-     Tricky part: find $p(\mu,\tau)$
+    Tricky part: find $p(\mu,\tau)$
 
 Similarly to the problem of only $\sigma^2$ fixed, consider a gamma prior, $\tau \propto \Gamma(\alpha,\beta) $, and we use the parametrization that PDF is $ \frac{\beta^\alpha}{\Gamma(\alpha)} x^{\alpha-1} e^{-x\beta}$ then for $\sigma^2$ is (obviously) an inverse gamma distribution, aka $\sigma^2 \propto IG(\alpha,\beta)$.
 
@@ -83,11 +84,10 @@ The full prior density $p(\tau,\mu)$ is then $p(\tau)p(\mu|\tau)$
 $ = \frac{\beta^\alpha}{\Gamma(\alpha)} x^{\alpha-1} e^{(-x\beta)} \sqrt{\frac{k\tau}{2\pi}} e^{({-\frac{k\tau}{2}(\mu-v)^2})}$ **(1)**
 
 and posterior $p(\mu,\tau|x)$
-           = (1)*$(\frac{\tau}{2\pi})^{\frac{n}{2}}e^{({\frac{-\tau}{2}}\sum_{i}(x_i-\mu)^2)}$
+           = *(1)* x $(\frac{\tau}{2\pi})^{\frac{n}{2}}e^{({\frac{-\tau}{2}}\sum_{i}(x_i-\mu)^2)}$
 
-Omitting some merging and substituting tricks that nobody wants to see, we come down to $p(\mu,\tau|x)\propto$
-
-$\tau^{\alpha'-1/2}e^{(-\tau(\beta' + \frac{k'}{2}(\mu-v')^2))}$
+Omitting some merging and substituting tricks that nobody wants to see, we come down to $p(\mu,\tau|x)$
+$\propto\tau^{\alpha'-1/2}e^{(-\tau(\beta' + \frac{k'}{2}(\mu-v')^2))}$
 
 $\alpha' = \alpha + \frac{n}{2}$
 
