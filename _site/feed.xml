@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.7.4">Jekyll</generator><link href="//numerairx.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="//numerairx.github.io/" rel="alternate" type="text/html" /><updated>2018-12-28T19:16:35-05:00</updated><id>//numerairx.github.io/feed.xml</id><title type="html">NumerairX</title><subtitle>Weekly Quant Struggles</subtitle><entry><title type="html">Bayesian Struggles: why we need conjugate prior</title><link href="//numerairx.github.io/Bayesian-Struggles-Why-We-Need-Conjugate-Prior/" rel="alternate" type="text/html" title="Bayesian Struggles: why we need conjugate prior" /><published>2018-12-22T00:00:00-05:00</published><updated>2018-12-22T00:00:00-05:00</updated><id>//numerairx.github.io/Bayesian%20Struggles-Why-We-Need-Conjugate-Prior</id><content type="html" xml:base="//numerairx.github.io/Bayesian-Struggles-Why-We-Need-Conjugate-Prior/">&lt;p&gt;I want to start this first post of the series of Bayesian stats with this meme.
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.7.4">Jekyll</generator><link href="//numerairx.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="//numerairx.github.io/" rel="alternate" type="text/html" /><updated>2018-12-28T19:22:18-05:00</updated><id>//numerairx.github.io/feed.xml</id><title type="html">NumerairX</title><subtitle>Weekly Quant Struggles</subtitle><entry><title type="html">Bayesian Struggles: why we need conjugate prior</title><link href="//numerairx.github.io/Bayesian-Struggles-Why-We-Need-Conjugate-Prior/" rel="alternate" type="text/html" title="Bayesian Struggles: why we need conjugate prior" /><published>2018-12-22T00:00:00-05:00</published><updated>2018-12-22T00:00:00-05:00</updated><id>//numerairx.github.io/Bayesian%20Struggles-Why-We-Need-Conjugate-Prior</id><content type="html" xml:base="//numerairx.github.io/Bayesian-Struggles-Why-We-Need-Conjugate-Prior/">&lt;p&gt;I want to start this first post of the series of Bayesian stats with this meme.
 &lt;a href=&quot;//numerairX.github.io/images/bayesfun.png&quot;&gt;&lt;img src=&quot;//numerairX.github.io/images/bayesfun.png&quot; alt=&quot;bayesian meme&quot; /&gt;&lt;/a&gt;&lt;br /&gt;
 (image from &lt;a href=&quot;https://www2.isye.gatech.edu/~brani/isyebayes/jokes.html&quot;&gt;Bayesian Fun&lt;/a&gt;)&lt;/p&gt;
 
@@ -19,17 +19,18 @@ and $p(x|\theta)$ is just binomial probability density function.&lt;/p&gt;
   &lt;tbody&gt;
     &lt;tr&gt;
       &lt;td&gt;$p(x&lt;/td&gt;
-      &lt;td&gt;\theta) = \int_{0}^{1} \theta^x (1-\theta)^{n-x} d\theta$&lt;/td&gt;
+      &lt;td&gt;\theta)=\int_{0}^{1}\theta^x(1-\theta)^{n-x}d\theta$&lt;/td&gt;
     &lt;/tr&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;p&gt;$=\frac{1^{k+1}(1-1)^{n-k}}{k+1}-\frac{0^{k+1}(1-0)^{n-k}}{k+1}$
-$+\frac{n-k}{k+1}\int_0^1 p^{k+1}(1-p)^{n-k-1}$&lt;/p&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$=\frac{1^{k+1}(1-1)^{n-k}}{k+1}-\frac{0^{k+1}(1-0)^{n-k}}{k+1}$
+$+\frac{n-k}{k+1}\int_0^1 p^{k+1}(1-p)^{n-k-1}$	 
 
-&lt;p&gt;$=  …$ keep doing integration by parts&lt;/p&gt;
+$=  ...$ keep doing integration by parts
 
-&lt;p&gt;$= \frac{x!(n-x)!}{(n+1)!}$&lt;/p&gt;
+$= \frac{x!(n-x)!}{(n+1)!}$
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;p&gt;which verifies to be beta distribution of $\alpha = x+1, \beta = n-x+1$.&lt;/p&gt;
 
@@ -75,13 +76,13 @@ Later from the wisdom of my professor, he made that $\mu|\tau \propto N(v, \frac
 The reason behind is given both conditioned on $X$ , $\mu$ and $\sigma^2$ should be dependent.&lt;/p&gt;
 
 &lt;p&gt;The full prior density $p(\tau,\mu)$ is then $p(\tau)p(\mu|\tau)$
-$ = \frac{\beta^\alpha}{\Gamma(\alpha)} x^{\alpha-1} exp(-x\beta) \sqrt{\frac{k\tau}{2\pi}} exp({-\frac{k\tau}{2}(\mu-v)^2}) $ &lt;strong&gt;(1)&lt;/strong&gt;&lt;/p&gt;
+$ = \frac{\beta^\alpha}{\Gamma(\alpha)} x^{\alpha-1} e^{(-x\beta)} \sqrt{\frac{k\tau}{2\pi}} e^{({-\frac{k\tau}{2}(\mu-v)^2})}$ &lt;strong&gt;(1)&lt;/strong&gt;&lt;/p&gt;
 
 &lt;table&gt;
   &lt;tbody&gt;
     &lt;tr&gt;
       &lt;td&gt;and posterior $p(\mu,\tau&lt;/td&gt;
-      &lt;td&gt;x) = $(1) * $(\frac{\tau}{2\pi})^{\frac{n}{2}} exp({\frac{-\tau}{2}}\sum_{i}(x_i-\mu)^2)$&lt;/td&gt;
+      &lt;td&gt;x)=$(1)*$(\frac{\tau}{2\pi})^{\frac{n}{2}}e^{({\frac{-\tau}{2}}\sum_{i}(x_i-\mu)^2)}$&lt;/td&gt;
     &lt;/tr&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
@@ -92,7 +93,7 @@ $ = \frac{\beta^\alpha}{\Gamma(\alpha)} x^{\alpha-1} exp(-x\beta) \sqrt{\frac{k\
   &lt;tbody&gt;
     &lt;tr&gt;
       &lt;td&gt;$p(\mu,\tau&lt;/td&gt;
-      &lt;td&gt;x)\propto\tau^{\alpha’-1/2}exp(-\tau(\beta’ + \frac{k’}{2}(\mu-v’)^2))$&lt;/td&gt;
+      &lt;td&gt;x)\propto\tau^{\alpha’-1/2}e^{(-\tau(\beta’ + \frac{k’}{2}(\mu-v’)^2))}$&lt;/td&gt;
     &lt;/tr&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;

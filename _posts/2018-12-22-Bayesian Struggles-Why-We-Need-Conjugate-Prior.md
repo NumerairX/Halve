@@ -26,14 +26,14 @@ $\theta$ as $x$, what can we learn about $\theta$ now (aka what is $p(\theta|x)$
 In this case our prior is no longer just our *'belief'* but a physics fact. We understand that $p(\theta)$ is 1 since it follows uniform distribution, 
 and $p(x|\theta)$ is just binomial probability density function.
 
-$p(x|\theta) = \int_{0}^{1} \theta^x (1-\theta)^{n-x} d\theta$ 
+$p(x|\theta)=\int_{0}^{1}\theta^x(1-\theta)^{n-x}d\theta$ 
 
-$=\frac{1^{k+1}(1-1)^{n-k}}{k+1}-\frac{0^{k+1}(1-0)^{n-k}}{k+1}$
-$+\frac{n-k}{k+1}\int_0^1 p^{k+1}(1-p)^{n-k-1}$	 
+	$=\frac{1^{k+1}(1-1)^{n-k}}{k+1}-\frac{0^{k+1}(1-0)^{n-k}}{k+1}$
+	$+\frac{n-k}{k+1}\int_0^1 p^{k+1}(1-p)^{n-k-1}$	 
 
-$=  ...$ keep doing integration by parts
+	$=  ...$ keep doing integration by parts
 
-$= \frac{x!(n-x)!}{(n+1)!}$
+	$= \frac{x!(n-x)!}{(n+1)!}$
 
 
 
@@ -79,13 +79,13 @@ Later from the wisdom of my professor, he made that $\mu|\tau \propto N(v, \frac
 The reason behind is given both conditioned on $X$ , $\mu$ and $\sigma^2$ should be dependent. 
 
 The full prior density $p(\tau,\mu)$ is then $p(\tau)p(\mu|\tau)$
-$ = \frac{\beta^\alpha}{\Gamma(\alpha)} x^{\alpha-1} exp(-x\beta) \sqrt{\frac{k\tau}{2\pi}} exp({-\frac{k\tau}{2}(\mu-v)^2}) $ **(1)**
+$ = \frac{\beta^\alpha}{\Gamma(\alpha)} x^{\alpha-1} e^{(-x\beta)} \sqrt{\frac{k\tau}{2\pi}} e^{({-\frac{k\tau}{2}(\mu-v)^2})}$ **(1)**
 
-and posterior $p(\mu,\tau|x) = $(1) * $(\frac{\tau}{2\pi})^{\frac{n}{2}} exp({\frac{-\tau}{2}}\sum_{i}(x_i-\mu)^2)$
+and posterior $p(\mu,\tau|x)=$(1)*$(\frac{\tau}{2\pi})^{\frac{n}{2}}e^{({\frac{-\tau}{2}}\sum_{i}(x_i-\mu)^2)}$
 
 Omitting some merging and substituting tricks that nobody wants to see, we come down to:
 
-$p(\mu,\tau|x)\propto\tau^{\alpha'-1/2}exp(-\tau(\beta' + \frac{k'}{2}(\mu-v')^2))$
+$p(\mu,\tau|x)\propto\tau^{\alpha'-1/2}e^{(-\tau(\beta' + \frac{k'}{2}(\mu-v')^2))}$
 
 $\alpha' = \alpha + \frac{n}{2}$
 
