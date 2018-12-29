@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Bayesian Struggles: why we need conjugate prior"
+title:  "Bayesian Struggles: why we need conjugate priors"
 date:   2018-12-22
 excerpt: "starting with two simple examples..."
 tag:
