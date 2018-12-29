@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.7.4">Jekyll</generator><link href="//numerairx.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="//numerairx.github.io/" rel="alternate" type="text/html" /><updated>2018-12-28T19:00:03-05:00</updated><id>//numerairx.github.io/feed.xml</id><title type="html">NumerairX</title><subtitle>Weekly Quant Struggles</subtitle><entry><title type="html">Bayesian Struggles: why we need conjugate prior</title><link href="//numerairx.github.io/Bayesian-Struggles-Why-We-Need-Conjugate-Prior/" rel="alternate" type="text/html" title="Bayesian Struggles: why we need conjugate prior" /><published>2018-12-22T00:00:00-05:00</published><updated>2018-12-22T00:00:00-05:00</updated><id>//numerairx.github.io/Bayesian%20Struggles-Why-We-Need-Conjugate-Prior</id><content type="html" xml:base="//numerairx.github.io/Bayesian-Struggles-Why-We-Need-Conjugate-Prior/">&lt;p&gt;I want to start this first post of the series of Bayesian stats with this meme.
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.7.4">Jekyll</generator><link href="//numerairx.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="//numerairx.github.io/" rel="alternate" type="text/html" /><updated>2018-12-28T19:04:43-05:00</updated><id>//numerairx.github.io/feed.xml</id><title type="html">NumerairX</title><subtitle>Weekly Quant Struggles</subtitle><entry><title type="html">Bayesian Struggles: why we need conjugate prior</title><link href="//numerairx.github.io/Bayesian-Struggles-Why-We-Need-Conjugate-Prior/" rel="alternate" type="text/html" title="Bayesian Struggles: why we need conjugate prior" /><published>2018-12-22T00:00:00-05:00</published><updated>2018-12-22T00:00:00-05:00</updated><id>//numerairx.github.io/Bayesian%20Struggles-Why-We-Need-Conjugate-Prior</id><content type="html" xml:base="//numerairx.github.io/Bayesian-Struggles-Why-We-Need-Conjugate-Prior/">&lt;p&gt;I want to start this first post of the series of Bayesian stats with this meme.
 &lt;a href=&quot;//numerairX.github.io/images/bayesfun.png&quot;&gt;&lt;img src=&quot;//numerairX.github.io/images/bayesfun.png&quot; alt=&quot;bayesian meme&quot; /&gt;&lt;/a&gt;&lt;br /&gt;
 (image from &lt;a href=&quot;https://www2.isye.gatech.edu/~brani/isyebayes/jokes.html&quot;&gt;Bayesian Fun&lt;/a&gt;)&lt;/p&gt;
 
@@ -24,7 +24,8 @@ and $p(x|\theta)$ is just binomial probability density function.&lt;/p&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;p&gt;$=\frac{1^{k+1}(1-1)^{n-k}}{k+1}-\frac{0^{k+1}(1-0)^{n-k}}{k+1}+\frac{n-k}{k+1}\int_0^1 p^{k+1}(1-p)^{n-k-1}\$&lt;/p&gt;
+&lt;p&gt;$=\frac{1^{k+1}(1-1)^{n-k}}{k+1}-\frac{0^{k+1}(1-0)^{n-k}}{k+1}$
+$+\frac{n-k}{k+1}\int_0^1 p^{k+1}(1-p)^{n-k-1}$&lt;/p&gt;
 
 &lt;p&gt;$=  …$ keep doing integration by parts&lt;/p&gt;
 
@@ -61,9 +62,10 @@ $\int_{- \infty}^{\infty} \frac{1}{\sqrt{2\pi\sigma_0^2}} e^{\frac{-(\mu-\mu_0)^
   &lt;p&gt;Consider i.i.d sample $X = (x_1,x_2, …, x_n)$ are drawn from distribution  $N(\mu,\sigma^2)$ with &lt;strong&gt;$\mu$ and $\sigma^2$ random&lt;/strong&gt;. Let $\tau = \frac{1}{\sigma^2}$, it is suffice to have parameter set $\theta = (\mu, \tau)$.&lt;/p&gt;
 &lt;/blockquote&gt;
 
-&lt;h5 id=&quot;our-goal-find-pxmutau&quot;&gt;our goal: find $p(x|\mu,\tau)$&lt;/h5&gt;
+&lt;h4 id=&quot;our-goal-find-pxmutau&quot;&gt;our goal: find $p(x|\mu,\tau)$&lt;/h4&gt;
 
-&lt;h5 id=&quot;--tricky-part-find-pmutau&quot;&gt;-&amp;gt; Tricky part: find $p(\mu,\tau)$&lt;/h5&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt; -&amp;gt; Tricky part: find $p(\mu,\tau)$
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;p&gt;Similarly to the problem of only $\sigma^2$ fixed, consider a gamma prior, $\tau \propto \Gamma(\alpha,\beta) $, and we use the parametrization that PDF is $ \frac{\beta^\alpha}{\Gamma(\alpha)} x^{\alpha-1} e^{-x\beta}$ then for $\sigma^2$ is (obviously) an inverse gamma distribution, aka $\sigma^2 \propto IG(\alpha,\beta)$.&lt;/p&gt;
 
