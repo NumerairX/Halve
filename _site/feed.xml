@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.7.4">Jekyll</generator><link href="//numerairx.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="//numerairx.github.io/" rel="alternate" type="text/html" /><updated>2018-12-28T19:13:57-05:00</updated><id>//numerairx.github.io/feed.xml</id><title type="html">NumerairX</title><subtitle>Weekly Quant Struggles</subtitle><entry><title type="html">Bayesian Struggles: why we need conjugate prior</title><link href="//numerairx.github.io/Bayesian-Struggles-Why-We-Need-Conjugate-Prior/" rel="alternate" type="text/html" title="Bayesian Struggles: why we need conjugate prior" /><published>2018-12-22T00:00:00-05:00</published><updated>2018-12-22T00:00:00-05:00</updated><id>//numerairx.github.io/Bayesian%20Struggles-Why-We-Need-Conjugate-Prior</id><content type="html" xml:base="//numerairx.github.io/Bayesian-Struggles-Why-We-Need-Conjugate-Prior/">&lt;p&gt;I want to start this first post of the series of Bayesian stats with this meme.
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.7.4">Jekyll</generator><link href="//numerairx.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="//numerairx.github.io/" rel="alternate" type="text/html" /><updated>2018-12-28T19:16:35-05:00</updated><id>//numerairx.github.io/feed.xml</id><title type="html">NumerairX</title><subtitle>Weekly Quant Struggles</subtitle><entry><title type="html">Bayesian Struggles: why we need conjugate prior</title><link href="//numerairx.github.io/Bayesian-Struggles-Why-We-Need-Conjugate-Prior/" rel="alternate" type="text/html" title="Bayesian Struggles: why we need conjugate prior" /><published>2018-12-22T00:00:00-05:00</published><updated>2018-12-22T00:00:00-05:00</updated><id>//numerairx.github.io/Bayesian%20Struggles-Why-We-Need-Conjugate-Prior</id><content type="html" xml:base="//numerairx.github.io/Bayesian-Struggles-Why-We-Need-Conjugate-Prior/">&lt;p&gt;I want to start this first post of the series of Bayesian stats with this meme.
 &lt;a href=&quot;//numerairX.github.io/images/bayesfun.png&quot;&gt;&lt;img src=&quot;//numerairX.github.io/images/bayesfun.png&quot; alt=&quot;bayesian meme&quot; /&gt;&lt;/a&gt;&lt;br /&gt;
 (image from &lt;a href=&quot;https://www2.isye.gatech.edu/~brani/isyebayes/jokes.html&quot;&gt;Bayesian Fun&lt;/a&gt;)&lt;/p&gt;
 
@@ -55,7 +55,7 @@ so imagine if we were live-recording the rolling, we would add 1 to $\alpha$.  I
 
 &lt;p&gt;let’s imagine a slightly more complicated case, where you are trying to infer the parameters of your dataset, which you believe to follow normal distribution. 
 You don’t get nice property like $p(\theta)$ just equals to 1 and needs to do&lt;br /&gt;
-$\int_{- \infty}^{\infty} \frac{1}{\sqrt{2\pi\sigma_0^2}} e^{\frac{-(\mu-\mu_0)^2}{2\sigma_0^2}} * \frac{1}{\sqrt{2\pi\sigma^2}} e^{\frac{-(x-\mu)^2}{2\sigma^2}} d\mu$.css(“font-size”,”80%”)
+$\int_{- \infty}^{\infty} \frac{1}{\sqrt{2\pi\sigma_0^2}} e^{\frac{-(\mu-\mu_0)^2}{2\sigma_0^2}} * \frac{1}{\sqrt{2\pi\sigma^2}} e^{\frac{-(x-\mu)^2}{2\sigma^2}} d\mu$
  every time you update. This is actually why most times we want find nice conjugate priors to avoid computing high dimensional integration. The benefits will came clear after the below explanation.&lt;/p&gt;
 
 &lt;blockquote&gt;
@@ -74,14 +74,14 @@ But if $\mu$ and $\sigma^2$ are independent of each other, posterior won’t be 
 Later from the wisdom of my professor, he made that $\mu|\tau \propto N(v, \frac{1}{k\tau})$ for $v, k$ being some real number and of course $k&amp;gt;0$. 
 The reason behind is given both conditioned on $X$ , $\mu$ and $\sigma^2$ should be dependent.&lt;/p&gt;
 
-&lt;p&gt;The full prior density $p(\tau,\mu)$ is then $p(\tau)p(\mu|\tau)$.css(“font-size”,”80%”)
-$= \frac{\beta^\alpha}{\Gamma(\alpha)} x^{\alpha-1} exp(-x\beta) \sqrt{\frac{k\tau}{2\pi}} exp({-\frac{k\tau}{2}(\mu-v)^2})$.css(“font-size”,”80%”) &lt;strong&gt;(1)&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;The full prior density $p(\tau,\mu)$ is then $p(\tau)p(\mu|\tau)$
+$ = \frac{\beta^\alpha}{\Gamma(\alpha)} x^{\alpha-1} exp(-x\beta) \sqrt{\frac{k\tau}{2\pi}} exp({-\frac{k\tau}{2}(\mu-v)^2}) $ &lt;strong&gt;(1)&lt;/strong&gt;&lt;/p&gt;
 
 &lt;table&gt;
   &lt;tbody&gt;
     &lt;tr&gt;
       &lt;td&gt;and posterior $p(\mu,\tau&lt;/td&gt;
-      &lt;td&gt;x) = $&lt;strong&gt;(1)&lt;/strong&gt; * $(\frac{\tau}{2\pi})^{\frac{n}{2}} exp({\frac{-\tau}{2}}\sum_{i}(x_i-\mu)^2)$.css(“font-size”,”80%”)&lt;/td&gt;
+      &lt;td&gt;x) = $(1) * $(\frac{\tau}{2\pi})^{\frac{n}{2}} exp({\frac{-\tau}{2}}\sum_{i}(x_i-\mu)^2)$&lt;/td&gt;
     &lt;/tr&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
@@ -92,18 +92,18 @@ $= \frac{\beta^\alpha}{\Gamma(\alpha)} x^{\alpha-1} exp(-x\beta) \sqrt{\frac{k\t
   &lt;tbody&gt;
     &lt;tr&gt;
       &lt;td&gt;$p(\mu,\tau&lt;/td&gt;
-      &lt;td&gt;x)\propto\tau^{\alpha’-1/2}exp(-\tau(\beta’ + \frac{k’}{2}(\mu-v’)^2))$.css(“font-size”,”80%”)&lt;/td&gt;
+      &lt;td&gt;x)\propto\tau^{\alpha’-1/2}exp(-\tau(\beta’ + \frac{k’}{2}(\mu-v’)^2))$&lt;/td&gt;
     &lt;/tr&gt;
   &lt;/tbody&gt;
 &lt;/table&gt;
 
-&lt;p&gt;$\alpha’ = \alpha + \frac{n}{2}$.css(“font-size”,”80%”)&lt;/p&gt;
+&lt;p&gt;$\alpha’ = \alpha + \frac{n}{2}$&lt;/p&gt;
 
-&lt;p&gt;$\beta’ = \beta + \frac{1}{2} \frac{nk}{n+k}(\bar{x}-v)^2 + \frac{1}{2} \sum_{i} (x_i-x)^2$.css(“font-size”,”80%”)&lt;/p&gt;
+&lt;p&gt;$\beta’ = \beta + \frac{1}{2} \frac{nk}{n+k}(\bar{x}-v)^2 + \frac{1}{2} \sum_{i} (x_i-x)^2$&lt;/p&gt;
 
-&lt;p&gt;$k’ = k+n’$.css(“font-size”,”80%”)&lt;/p&gt;
+&lt;p&gt;$k’ = k+n’$&lt;/p&gt;
 
-&lt;p&gt;$v’ = \frac{kv+n\bar{x}}{k+n}$.css(“font-size”,”80%”)&lt;/p&gt;
+&lt;p&gt;$v’ = \frac{kv+n\bar{x}}{k+n}$&lt;/p&gt;
 
 &lt;p&gt;leaves only four simple algebra to maintain at each update.&lt;/p&gt;
 
