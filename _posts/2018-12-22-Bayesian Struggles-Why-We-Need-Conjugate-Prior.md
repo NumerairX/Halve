@@ -27,9 +27,13 @@ In this case our prior is no longer just our *'belief'* but a physics fact. We u
 and $p(x|\theta)$ is just binomial probability density function.
 
 $p(x|\theta)=\int_{0}^{1}\theta^x(1-\theta)^{n-x}d\theta$ 
+
 $           =\frac{1^{k+1}(1-1)^{n-k}}{k+1}-\frac{0^{k+1}(1-0)^{n-k}}{k+1}$
+
 $             +\frac{n-k}{k+1}\int_0^1 p^{k+1}(1-p)^{n-k-1}$	 
+
 $           =  ...$ keep doing integration by parts
+
 $           = \frac{x!(n-x)!}{(n+1)!}$
 
 
@@ -64,9 +68,9 @@ $\int_{- \infty}^{\infty} \frac{1}{\sqrt{2\pi\sigma_0^2}} e^{\frac{-(\mu-\mu_0)^
 
 > Consider i.i.d sample $X = (x_1,x_2, ..., x_n)$ are drawn from distribution  $N(\mu,\sigma^2)$ with **$\mu$ and $\sigma^2$ random**. Let $\tau = \frac{1}{\sigma^2}$, it is suffice to have parameter set $\theta = (\mu, \tau)$. 
 
-#### our goal: find $p(x|\mu,\tau)$
+#### Our goal: find $p(x|\mu,\tau)$
 
-     -> Tricky part: find $p(\mu,\tau)$
+     Tricky part: find $p(\mu,\tau)$
 
 Similarly to the problem of only $\sigma^2$ fixed, consider a gamma prior, $\tau \propto \Gamma(\alpha,\beta) $, and we use the parametrization that PDF is $ \frac{\beta^\alpha}{\Gamma(\alpha)} x^{\alpha-1} e^{-x\beta}$ then for $\sigma^2$ is (obviously) an inverse gamma distribution, aka $\sigma^2 \propto IG(\alpha,\beta)$.
 
@@ -81,9 +85,9 @@ $ = \frac{\beta^\alpha}{\Gamma(\alpha)} x^{\alpha-1} e^{(-x\beta)} \sqrt{\frac{k
 and posterior $p(\mu,\tau|x)$
            = (1)*$(\frac{\tau}{2\pi})^{\frac{n}{2}}e^{({\frac{-\tau}{2}}\sum_{i}(x_i-\mu)^2)}$
 
-Omitting some merging and substituting tricks that nobody wants to see, we come down to:
+Omitting some merging and substituting tricks that nobody wants to see, we come down to $p(\mu,\tau|x)\propto$
 
-$p(\mu,\tau|x)\propto\tau^{\alpha'-1/2}e^{(-\tau(\beta' + \frac{k'}{2}(\mu-v')^2))}$
+$\tau^{\alpha'-1/2}e^{(-\tau(\beta' + \frac{k'}{2}(\mu-v')^2))}$
 
 $\alpha' = \alpha + \frac{n}{2}$
 
