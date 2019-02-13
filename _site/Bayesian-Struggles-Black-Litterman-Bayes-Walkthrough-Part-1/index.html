@@ -56,13 +56,13 @@
           <td>$p(r</td>
           <td>q) = \int{p(r</td>
           <td>\theta)p(\theta</td>
-          <td>q)d\theta} ​$                                 (2)</td>
+          <td>q)d\theta} $                                 (2)</td>
         </tr>
       </tbody>
     </table>
   </li>
   <li>
-    <p>use the mean and variance of posterior of r to calculate $h_{opt}$</p>
+    <p>use the mean and variance of posterior of r to calculate $h_{opt}​$</p>
   </li>
 </ol>
 
@@ -87,13 +87,10 @@
 = \theta'H\theta - 2\eta\theta</script>
 For simplicity, let $H = P’\Omega^{-1}P+C^{-1}$ and $\eta = q’\Omega^{-1}P + \Pi’C^{-1}$</p>
 
-<h3 id="now-think-about-how-we-get-mean-and-covariance-of-theta">Now, think about how we get mean and covariance of $\theta$</h3>
-
-<p><script type="math/tex">logp(\theta) \approx c + \frac{(\theta-\mu)^2}{\sigma^2}\\
+<p>Now, think about how we get mean and covariance of $\theta$
+<script type="math/tex">logp(\theta) \approx c + \frac{(\theta-\mu)^2}{\sigma^2}\\
 \approx \frac{\theta^2}{\sigma^2} + \frac{2\theta\mu}{\sigma^2}\ (omitting\ terms\ without\ \theta)\                  (4)</script>
 It’s then clear that $H = \frac{1}{\sigma^2}\ and\ \eta = \frac{\mu}{\sigma^2} $ so we have covariance equals to $H^{-1}$ and mean equals $H^{-1}\eta$ .</p>
-
-<p>###</p>
 
 <h3 id="posterior-of-r">Posterior of r</h3>
 
@@ -108,10 +105,8 @@ Similarly, we let $H_r = V^{-1} + p’\Omega^{-1}P, \eta’_r =\xi’V^{-1} + r�
 \mathbb{V}(r) = (\Omega^{-1}+\Omega^{-1}PH_r^{-1}P'\Omega^{-1})^{-1}</script></p>
 
 <p>Recall our portfolio set up, we can now obtain optimal portfolio holding
-<script type="math/tex">h_{opt} = (k\mathbb{V}(r))^{-1}\mathbb{R}(r)</script></p>
+<script type="math/tex">h_{opt} = (k\mathbb{V}(r))^{-1}\mathbb{E}(r)</script></p>
 
 <h3 id="end-note">End Note</h3>
 
 <p>Originally I imagined putting everything in one post, but while writing it I decided it’s best to follow the structure of most generalized derivation -&gt; introduction of arbitrage pricing theory model -&gt; application, from dataset specs to code. So stay tuned for the following posts in this series!</p>
-
-<p>#</p>

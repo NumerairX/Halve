@@ -40,9 +40,9 @@ Our calculation steps then follow:
 
 2. use the above to calculate the posterior of $r$:
 
-    $p(r|q) = \int{p(r|\theta)p(\theta|q)d\theta} ​$                                 (2)
+    $p(r|q) = \int{p(r|\theta)p(\theta|q)d\theta} $                                 (2)
 
-3. use the mean and variance of posterior of r to calculate $h_{opt}$
+3. use the mean and variance of posterior of r to calculate $h_{opt}​$
 
 
 
@@ -61,15 +61,12 @@ $$
 $$
 For simplicity, let $H = P'\Omega^{-1}P+C^{-1}$ and $\eta = q'\Omega^{-1}P + \Pi'C^{-1}$
 
-### Now, think about how we get mean and covariance of $\theta$
-
+Now, think about how we get mean and covariance of $\theta$
 $$
 logp(\theta) \approx c + \frac{(\theta-\mu)^2}{\sigma^2}\\
 \approx \frac{\theta^2}{\sigma^2} + \frac{2\theta\mu}{\sigma^2}\ (omitting\ terms\ without\ \theta)\                  (4)
 $$
 It's then clear that $H = \frac{1}{\sigma^2}\ and\ \eta = \frac{\mu}{\sigma^2} $ so we have covariance equals to $H^{-1}$ and mean equals $H^{-1}\eta$ .
-
-### 
 
 ### Posterior of r
 
@@ -90,11 +87,9 @@ $$
 
 Recall our portfolio set up, we can now obtain optimal portfolio holding
 $$
-h_{opt} = (k\mathbb{V}(r))^{-1}\mathbb{R}(r)
+h_{opt} = (k\mathbb{V}(r))^{-1}\mathbb{E}(r)
 $$
 
 ### End Note
 
 Originally I imagined putting everything in one post, but while writing it I decided it's best to follow the structure of most generalized derivation -> introduction of arbitrage pricing theory model -> application, from dataset specs to code. So stay tuned for the following posts in this series! 
-
-#  
