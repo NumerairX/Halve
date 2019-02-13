@@ -10,7 +10,7 @@ Before we start, I want to acknowledge that everything I learned in this post wa
 
 
 
-### Intuitions on Black-Litterman-Bayes
+# Intuitions on Black-Litterman-Bayes
 
 Objective: find optimized holdings of our portfolio s.t. $ h* = argmax_h {E[h'r] - \frac{{k}}{2}V[h'r] }$
 
@@ -24,7 +24,7 @@ Elements needed:
 
 
 
-### Bayesian Set Up
+# Bayesian Set Up
 
 Imagine we have some portfolios, and N portfolio managers has opinion on what sector might outperform all other sectors by a percentage, $q%$. Then essentially the holdings on portfolio of each manager makes up a matrix $P$ of N rows and each row is a set of holdings. Then our expected return on the whole portfolio equals to $q$. 
 
@@ -34,15 +34,19 @@ Importantly, we specify error for each expectation, for which we will denote as 
 
 Our calculation steps then follow:
 
-calculate posterior of $\theta$: $p(\theta|q) = \frac{f(q|\theta)\pi(\theta)}{\int{f(q|\theta)\pi(\theta)}}$                                                      (1)
+1. calculate posterior of $\theta$: 
 
-use the above to calculate the posterior of $r$: $p(r|q) = \int{p(r|\theta)p(\theta|q)d\theta} $     (2)
+   $p(\theta|q) = \frac{f(q|\theta)\pi(\theta)}{\int{f(q|\theta)\pi(\theta)}}$                           (1)
 
-use the mean and variance of posterior of r to calculate $h_{opt}$                        (3)
+2. use the above to calculate the posterior of $r$:
+
+    $p(r|q) = \int{p(r|\theta)p(\theta|q)d\theta} $              (2)
+
+3. use the mean and variance of posterior of r to calculate $h_{opt}$
 
 
 
-### Posterior of $\theta$
+# Posterior of $\theta$
 
 Very obviously we can approximate the posterior to 
 
@@ -66,7 +70,7 @@ It's then clear that $H = \frac{1}{\sigma^2}\ and\ \eta = \frac{\mu}{\sigma^2} $
 
 
 
-### Posterior of r
+# Posterior of r
 
 Well at this stage, I bet my readers already know the derivation for this one. Thanks to conjugate prior, we will be able to maintain the same update format as $\theta$. 
 
@@ -88,8 +92,8 @@ $$
 h_{opt} = (k\mathbb{V}(r))^{-1}\mathbb{R}(r)
 $$
 
-### End Note
+# End Note
 
 Originally I imagined putting everything in one post, but while writing it I decided it's best to follow the structure of most generalized derivation -> introduction of arbitrage pricing theory model -> application, from dataset specs to code. So stay tuned for the following posts in this series! 
 
- 
+#  
