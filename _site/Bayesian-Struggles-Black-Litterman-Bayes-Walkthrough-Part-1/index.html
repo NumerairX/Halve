@@ -34,53 +34,21 @@
 
 <ol>
   <li>
-    <table>
-      <tbody>
-        <tr>
-          <td>calculate posterior of $\theta$, $p(\theta</td>
-          <td>q)$</td>
-        </tr>
-      </tbody>
-    </table>
-
-    <table>
-      <tbody>
-        <tr>
-          <td>$f(q</td>
-          <td>\theta)\pi(\theta) (\int{f(q</td>
-          <td>\theta)\pi(\theta)})^{-1}$</td>
-        </tr>
-      </tbody>
-    </table>
+    <p>calculate posterior of $\theta$, $p(\theta \lvert q) = \frac{f(q \lvert \theta)\pi(\theta) }{\int{f(q\lvert \theta)\pi(\theta)}}$</p>
   </li>
   <li>
     <p>use the above to calculate the posterior of $r$:</p>
 
-    <table>
-      <tbody>
-        <tr>
-          <td>$p(r</td>
-          <td>q) = \int{p(r</td>
-          <td>\theta)p(\theta</td>
-          <td>q)d\theta} $</td>
-        </tr>
-      </tbody>
-    </table>
+    <p>$p(r \lvert q) = \int{p(r \lvert \theta)p(\theta \lvert q)d\theta} $</p>
   </li>
-  <li>use the mean and variance of posterior of r to calculate $h_{opt}$</li>
+  <li>
+    <p>use the mean and variance of posterior of r to calculate $h_{opt}$</p>
+  </li>
 </ol>
 
 <h3 id="posterior-of-theta">Posterior of $\theta$</h3>
 
-<table>
-  <tbody>
-    <tr>
-      <td>Very obviously we can approximate the posterior to $N(q</td>
-      <td>p\theta,\Omega) N(\theta</td>
-      <td>\Pi,\Omega)$ according to item 1. (question to readers, think about why are normalizer neglect-able?).</td>
-    </tr>
-  </tbody>
-</table>
+<p>Very obviously we can approximate the posterior to $N(q \lvert p\theta,\Omega) N(\theta \lvert \Pi,\Omega)​$ according to item 1. (question to readers, think about why are normalizer neglect-able?).</p>
 
 <p>Having normal distribution in hand, we realize that it’s much easier to get log form and log function preserves monotonicity. Finally we have:
 <script type="math/tex">-2logp(\theta) \sim (P\theta-q)'\Omega^{-1}(p\theta-q) + (\theta-\Pi)'C(\theta-\Pi)\\

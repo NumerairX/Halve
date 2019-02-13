@@ -34,13 +34,11 @@ Importantly, we specify error for each expectation, for which we will denote as 
 
 Our calculation steps then follow:
 
-1. calculate posterior of $\theta$, $p(\theta|q)$
-
-   $f(q|\theta)\pi(\theta) (\int{f(q|\theta)\pi(\theta)})^{-1}$
+1. calculate posterior of $\theta$, $p(\theta \lvert q) = \frac{f(q \lvert \theta)\pi(\theta) }{\int{f(q\lvert \theta)\pi(\theta)}}$
 
 2. use the above to calculate the posterior of $r$:
 
-    $p(r|q) = \int{p(r|\theta)p(\theta|q)d\theta} $ 
+    $p(r \lvert q) = \int{p(r \lvert \theta)p(\theta \lvert q)d\theta} $ 
 
 3. use the mean and variance of posterior of r to calculate $h_{opt}$
 
@@ -48,7 +46,7 @@ Our calculation steps then follow:
 
 ### Posterior of $\theta$
 
-Very obviously we can approximate the posterior to $N(q|p\theta,\Omega) N(\theta|\Pi,\Omega)$ according to item 1. (question to readers, think about why are normalizer neglect-able?). 
+Very obviously we can approximate the posterior to $N(q \lvert p\theta,\Omega) N(\theta \lvert \Pi,\Omega)​$ according to item 1. (question to readers, think about why are normalizer neglect-able?). 
 
 Having normal distribution in hand, we realize that it's much easier to get log form and log function preserves monotonicity. Finally we have:
 $$
