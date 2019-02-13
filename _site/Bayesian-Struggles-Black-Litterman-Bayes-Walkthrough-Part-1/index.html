@@ -1,0 +1,103 @@
+<p>The beauty of mathematics, to me, lies the most in the ability of substantiating abstract ideas. One of my favorite to name is the orbit-stabilizer theorem (imaginable as a cube with orbit and you can flip it by rules).</p>
+
+<p>The beauty of financial mathematics on the other hand, lies the most in everything comes down to a set of procedures all the time (uniformity!). For Black-Litterman optimization, it is falls under the category of statistical procedure, where we assume return follows a distribution, and portfolio managers’ economics views are useful to infer the parameters of the distribution given our objective expectation.</p>
+
+<p>Before we start, I want to acknowledge that everything I learned in this post was again, from my wonderful professor Gordon Ritter at his very amazing class Active Portfolio Management (I think available at NYU tandon and Baruch MFE program). This particular class was taken from his paper with Professor Petter Kolm (who I always see him being very excited about math details). Please read <a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=2853158">their paper</a> if you are interested in learning deeper (for example, the consideration on choosing prior)!</p>
+
+<h6 id="intuitions-on-black-litterman-bayes">Intuitions on Black-Litterman-Bayes</h6>
+
+<p>Objective: find optimized holdings of our portfolio s.t. $ h* = argmax_h {E[h’r] - \frac{2}V[h’r] }$</p>
+
+<p>Translation: Need to estimate mean and variance of $r$ to solve mean-variance optimization</p>
+
+<p>Elements needed:</p>
+
+<ul>
+  <li>Unconditional expectation and variance of $r$ to get posterior update $r \sim  N(\theta,\sum)$</li>
+  <li>$r$’s conjugate prior, let $\theta \sim N(\Pi,C)$</li>
+  <li>priori optimal portfolio holding $h_b$</li>
+</ul>
+
+<h6 id="bayesian-set-up">Bayesian Set Up</h6>
+
+<p>Imagine we have some portfolios, and N portfolio managers has opinion on what sector might outperform all other sectors by a percentage, $q%$. Then essentially the holdings on portfolio of each manager makes up a matrix $P$ of N rows and each row is a set of holdings. Then our expected return on the whole portfolio equals to $q$.</p>
+
+<ul>
+  <li>on a detailed level, we have $E(p_ir) = q_i$ for $q_i$ in $\mathbb{R}$</li>
+</ul>
+
+<p>Importantly, we specify error for each expectation, for which we will denote as $\epsilon_i \sim N(0, \Omega)$ and thus we have a likelihood to maximize.</p>
+
+<p>Our calculation steps then follow:</p>
+
+<ol>
+  <li>
+    <table>
+      <tbody>
+        <tr>
+          <td>calculate posterior of $\theta$: $p(\theta</td>
+          <td>q) = \frac{f(q</td>
+          <td>\theta)\pi(\theta)}{\int{f(q</td>
+          <td>\theta)\pi(\theta)}}$                                                      (1)</td>
+        </tr>
+      </tbody>
+    </table>
+  </li>
+  <li>
+    <table>
+      <tbody>
+        <tr>
+          <td>use the above to calculate the posterior of $r$: $p(r</td>
+          <td>q) = \int{p(r</td>
+          <td>\theta)p(\theta</td>
+          <td>q)d\theta} $     (2)</td>
+        </tr>
+      </tbody>
+    </table>
+  </li>
+  <li>use the mean and variance of posterior of r to calculate $h_{opt}$                        (3)</li>
+</ol>
+
+<h6 id="posterior-of-theta">Posterior of $\theta$</h6>
+
+<table>
+  <tbody>
+    <tr>
+      <td>Very obviously we can approximate the posterior to $N(q</td>
+      <td>p\theta,\Omega)* N(\theta</td>
+      <td>\Pi,\Omega)$ according to (1) (question to readers, think about why are normalizer neglect-able?).</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Having normal distribution in hand, we realize that it’s much easier to get log form and log function preserves monotonicity. Finally we have:
+<script type="math/tex">-2logp(\theta) \sim (P\theta-q)'\Omega^{-1}(p\theta-q) + (\theta-\Pi)'\C(\theta-\Pi)\\
+= please\ pick\ up\ your\ pen\ and\ multiply\ out\ the\ brackets\\
+= \theta'(P'\Omega^{-1}P+C^{-1})\theta - 2(q'\Omega^{-1}P + \Pi'C^{-1})\theta\\
+= \theta'H\theta - 2\eta\theta</script>
+For simplicity, let $H = P’\Omega^{-1}P+C^{-1}$ and $\eta = q’\Omega^{-1}P + \Pi’C^{-1}$</p>
+
+<p>Now, think about how we get mean and covariance of $\theta$
+<script type="math/tex">logp(\theta) \approx c + \frac{(\theta-\mu)^2}{\sigma^2},\ c\ being\ some\ constant\\
+\approx \frac{\theta^2}{\sigma^2} + \frac{2\theta\mu}{\sigma^2}\ (omitting\ terms\ without\ \theta)\                  (4)</script>
+It’s then clear that $H = \frac{1}{\sigma^2}\ and\ \eta = \frac{\mu}{\sigma^2} $ so we have covariance equals to $H^{-1}$ and mean equals $H^{-1}\eta$ .</p>
+
+<h6 id="posterior-of-r">Posterior of r</h6>
+
+<p>Well at this stage, I bet my readers already know the derivation for this one. Thanks to conjugate prior, we will be able to maintain the same update format as $\theta$.</p>
+
+<p>let $\xi = H^{-1}\eta, v = H^{-1}$, hence 
+<script type="math/tex">p(r|q) \sim N(r|P\theta,\Omega) * N(\theta|\xi,v)</script>
+Similarly, we let $H_r = V^{-1} + p’\Omega^{-1}P, \eta’_r =\xi’V^{-1} + r’\Omega^{-1}P$, and one more term $z = r’\Omega^{-1}r + \xi’V^{-1}\xi$</p>
+
+<p>and using the same trick, we get 
+<script type="math/tex">\mathbb{E}(r) = (\Omega^{-1}+\Omega^-1PH_r^{-1}P'\Omega^{-1})^{-1}\Omega^{-1}PH_r^{-1}V^{-1}\xi\\
+\mathbb{V}(r) = (\Omega^{-1}+\Omega^{-1}PH_r^{-1}P'\Omega^{-1})^{-1}</script></p>
+
+<p>Recall our portfolio set up, we can now obtain optimal portfolio holding
+<script type="math/tex">h_{opt} = (k\mathbb{V}(r))^{-1}\mathbb{R}(r)</script></p>
+
+<h6 id="end-note">End Note</h6>
+
+<p>Originally I imagined putting everything in one post, but while writing it I decided it’s best to follow the structure of most generalized derivation -&gt; introduction of arbitrage pricing theory model -&gt; application, from dataset specs to code. So stay tuned for the following posts in this series!</p>
+
