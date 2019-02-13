@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.7.4">Jekyll</generator><link href="//numerairx.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="//numerairx.github.io/" rel="alternate" type="text/html" /><updated>2019-02-12T20:17:02-05:00</updated><id>//numerairx.github.io/feed.xml</id><title type="html">NumerairX</title><subtitle>Periodic Quant Struggles</subtitle><entry><title type="html">Bayesian struggles Black Litterman Bayes Walkthrough Part 1</title><link href="//numerairx.github.io/Bayesian-Struggles-Black-Litterman-Bayes-Walkthrough-Part-1/" rel="alternate" type="text/html" title="Bayesian struggles Black Litterman Bayes Walkthrough Part 1" /><published>2019-02-11T00:00:00-05:00</published><updated>2019-02-11T00:00:00-05:00</updated><id>//numerairx.github.io/Bayesian%20Struggles-Black-Litterman-Bayes-Walkthrough-Part%201</id><content type="html" xml:base="//numerairx.github.io/Bayesian-Struggles-Black-Litterman-Bayes-Walkthrough-Part-1/">&lt;p&gt;The beauty of mathematics, to me, lies the most in the ability of substantiating abstract ideas. One of my favorite to name is the orbit-stabilizer theorem (imaginable as a cube with orbit and you can flip it by rules).&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.7.4">Jekyll</generator><link href="//numerairx.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="//numerairx.github.io/" rel="alternate" type="text/html" /><updated>2019-02-12T20:24:47-05:00</updated><id>//numerairx.github.io/feed.xml</id><title type="html">NumerairX</title><subtitle>Periodic Quant Struggles</subtitle><entry><title type="html">Bayesian struggles Black Litterman Bayes Walkthrough Part 1</title><link href="//numerairx.github.io/Bayesian-Struggles-Black-Litterman-Bayes-Walkthrough-Part-1/" rel="alternate" type="text/html" title="Bayesian struggles Black Litterman Bayes Walkthrough Part 1" /><published>2019-02-11T00:00:00-05:00</published><updated>2019-02-11T00:00:00-05:00</updated><id>//numerairx.github.io/Bayesian%20Struggles-Black-Litterman-Bayes-Walkthrough-Part%201</id><content type="html" xml:base="//numerairx.github.io/Bayesian-Struggles-Black-Litterman-Bayes-Walkthrough-Part-1/">&lt;p&gt;The beauty of mathematics, to me, lies the most in the ability of substantiating abstract ideas. One of my favorite to name is the orbit-stabilizer theorem (imaginable as a cube with orbit and you can flip it by rules).&lt;/p&gt;
 
 &lt;p&gt;The beauty of financial mathematics on the other hand, lies the most in everything comes down to a set of procedures all the time (uniformity!). For Black-Litterman optimization, it is falls under the category of statistical procedure, where we assume return follows a distribution, and portfolio managers’ economics views are useful to infer the parameters of the distribution given our objective expectation.&lt;/p&gt;
 
@@ -6,76 +6,68 @@
 
 &lt;h3 id=&quot;intuitions-on-black-litterman-bayes&quot;&gt;Intuitions on Black-Litterman-Bayes&lt;/h3&gt;
 
-&lt;p&gt;Objective: find optimized holdings of our portfolio s.t. $ h* = argmax_h {E[h’r] - \frac{2}V[h’r] }$&lt;/p&gt;
+&lt;p&gt;Objective: find optimized holdings of our portfolio s.t. $\small h* = argmax_h {E[h’r] - \frac{2}V[h’r] }$&lt;/p&gt;
 
 &lt;p&gt;Translation: Need to estimate mean and variance of $r$ to solve mean-variance optimization&lt;/p&gt;
 
 &lt;p&gt;Elements needed:&lt;/p&gt;
 
 &lt;ul&gt;
-  &lt;li&gt;Unconditional expectation and variance of $r$ to get posterior update $r \sim  N(\theta,\sum)$&lt;/li&gt;
-  &lt;li&gt;$r$’s conjugate prior, let $\theta \sim N(\Pi,C)$&lt;/li&gt;
-  &lt;li&gt;priori optimal portfolio holding $h_b$&lt;/li&gt;
+  &lt;li&gt;Unconditional expectation and variance of $r$ to get posterior update $\small r \sim  N(\theta,\sum)$&lt;/li&gt;
+  &lt;li&gt;$\small r$’s conjugate prior, let $\small \theta \sim N(\Pi,C)$&lt;/li&gt;
+  &lt;li&gt;priori optimal portfolio holding $\small h_b$&lt;/li&gt;
 &lt;/ul&gt;
-
-&lt;p&gt;###&lt;/p&gt;
 
 &lt;h3 id=&quot;bayesian-set-up&quot;&gt;Bayesian Set Up&lt;/h3&gt;
 
-&lt;p&gt;Imagine we have some portfolios, and N portfolio managers has opinion on what sector might outperform all other sectors by a percentage, $q%$. Then essentially the holdings on portfolio of each manager makes up a matrix $P$ of N rows and each row is a set of holdings. Then our expected return on the whole portfolio equals to $q$.&lt;/p&gt;
+&lt;p&gt;Imagine we have some portfolios, and N portfolio managers has opinion on what sector might outperform all other sectors by a percentage, $\small q%$. Then essentially the holdings on portfolio of each manager makes up a matrix $\small P$ of N rows and each row is a set of holdings. Then our expected return on the whole portfolio equals to $\small q$ .&lt;/p&gt;
 
 &lt;ul&gt;
-  &lt;li&gt;on a detailed level, we have $E(p_ir) = q_i$ for $q_i$ in $\mathbb{R}$&lt;/li&gt;
+  &lt;li&gt;on a detailed level, we have $\small E(p_ir) = q_i$ for $\small q_i$ in $\small \mathbb{R}$&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;Importantly, we specify error for each expectation, for which we will denote as $\epsilon_i \sim N(0, \Omega)$ and thus we have a likelihood to maximize.&lt;/p&gt;
+&lt;p&gt;Importantly, we specify error for each expectation, for which we will denote as $\small \epsilon_i \sim N(0, \Omega)$ and thus we have a likelihood to maximize.&lt;/p&gt;
 
 &lt;p&gt;Our calculation steps then follow:&lt;/p&gt;
 
 &lt;ol&gt;
+  &lt;li&gt;calculate posterior of $\small \theta$, $\small p (\theta \lvert q) = \frac{f(q \lvert \theta)\pi(\theta) }{\int{f(q\lvert \theta)\pi(\theta)}}$&lt;/li&gt;
   &lt;li&gt;
-    &lt;p&gt;calculate posterior of $\theta$, $p(\theta \lvert q) = \frac{f(q \lvert \theta)\pi(\theta) }{\int{f(q\lvert \theta)\pi(\theta)}}$&lt;/p&gt;
+    &lt;p&gt;use the above to calculate the posterior of $r$: $\small p(r \lvert q) = \int{p(r \lvert \theta)p(\theta \lvert q)d\theta} $&lt;/p&gt;
   &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;use the above to calculate the posterior of $r$:&lt;/p&gt;
-
-    &lt;p&gt;$p(r \lvert q) = \int{p(r \lvert \theta)p(\theta \lvert q)d\theta} $&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;use the mean and variance of posterior of r to calculate $h_{opt}$&lt;/p&gt;
-  &lt;/li&gt;
+  &lt;li&gt;use the mean and variance of posterior of r to calculate $\small h_{opt}$&lt;/li&gt;
 &lt;/ol&gt;
 
 &lt;h3 id=&quot;posterior-of-theta&quot;&gt;Posterior of $\theta$&lt;/h3&gt;
 
-&lt;p&gt;Very obviously we can approximate the posterior to $N(q \lvert p\theta,\Omega) N(\theta \lvert \Pi,\Omega)​$ according to item 1. (question to readers, think about why are normalizer neglect-able?).&lt;/p&gt;
+&lt;p&gt;Very obviously we can approximate the posterior to $\small N(q \lvert p\theta,\Omega) N(\theta \lvert \Pi,\Omega)$ according to item 1. (question to readers, think about why are normalizer neglect-able?).&lt;/p&gt;
 
 &lt;p&gt;Having normal distribution in hand, we realize that it’s much easier to get log form and log function preserves monotonicity. Finally we have:
-&lt;script type=&quot;math/tex&quot;&gt;-2logp(\theta) \sim (P\theta-q)'\Omega^{-1}(p\theta-q) + (\theta-\Pi)'C(\theta-\Pi)\\
-= please\ pick\ up\ your\ pen\ and\ multiply\ out\ the\ brackets\\
-= \theta'(P'\Omega^{-1}P+C^{-1})\theta - 2(q'\Omega^{-1}P + \Pi'C^{-1})\theta\\
-= \theta'H\theta - 2\eta\theta&lt;/script&gt;
-For simplicity, let $H = P’\Omega^{-1}P+C^{-1}$ and $\eta = q’\Omega^{-1}P + \Pi’C^{-1}$&lt;/p&gt;
+&lt;script type=&quot;math/tex&quot;&gt;\small -2logp(\theta) \sim (P\theta-q)'\Omega^{-1}(p\theta-q) + (\theta-\Pi)'C(\theta-\Pi)\\
+\small 	= please\ pick\ up\ your\ pen\ and\ multiply\ out\ the\ brackets\\
+\small	= \theta'(P'\Omega^{-1}P+C^{-1})\theta - 2(q'\Omega^{-1}P + \Pi'C^{-1})\theta\\
+\small	= \theta'H\theta - 2\eta\theta&lt;/script&gt;
+For simplicity, let $\small H = P’\Omega^{-1}P+C^{-1}$ and $\small \eta = q’\Omega^{-1}P + \Pi’C^{-1}$&lt;/p&gt;
 
 &lt;p&gt;Now, think about how we get mean and covariance of $\theta$
-&lt;script type=&quot;math/tex&quot;&gt;logp(\theta) \approx c + \frac{(\theta-\mu)^2}{\sigma^2}\\
-\approx \frac{\theta^2}{\sigma^2} + \frac{2\theta\mu}{\sigma^2}\ (omitting\ terms\ without\ \theta)\                  (4)&lt;/script&gt;
-It’s then clear that $H = \frac{1}{\sigma^2}\ and\ \eta = \frac{\mu}{\sigma^2} $ so we have covariance equals to $H^{-1}$ and mean equals $H^{-1}\eta$ .&lt;/p&gt;
+&lt;script type=&quot;math/tex&quot;&gt;\small logp(\theta) \approx c + \frac{(\theta-\mu)^2}{\sigma^2}\\
+\small \approx \frac{\theta^2}{\sigma^2} + \frac{2\theta\mu}{\sigma^2}\ (omitting\ terms\ without\ \theta)\                  (4)&lt;/script&gt;
+It’s then clear that $\small H = \frac{1}{\sigma^2}\ and\ \eta = \frac{\mu}{\sigma^2} $ so we have covariance equals to $\small H^{-1}$ and mean equals $\small H^{-1}\eta$.&lt;/p&gt;
 
 &lt;h3 id=&quot;posterior-of-r&quot;&gt;Posterior of r&lt;/h3&gt;
 
-&lt;p&gt;Well at this stage, I bet my readers already know the derivation for this one. Thanks to conjugate prior, we will be able to maintain the same update format as $\theta$.&lt;/p&gt;
+&lt;p&gt;Well at this stage, I bet my readers already know the derivation for this one. Thanks to conjugate prior, we will be able to maintain the same update format as $\small \theta$.&lt;/p&gt;
 
-&lt;p&gt;let $\xi = H^{-1}\eta, v = H^{-1}$, hence 
-&lt;script type=&quot;math/tex&quot;&gt;p(r|q) \sim N(r|P\theta,\Omega) N(\theta|\xi,v)&lt;/script&gt;
+&lt;p&gt;let $\small \xi = H^{-1}\eta, v = H^{-1}$, hence 
+&lt;script type=&quot;math/tex&quot;&gt;\small p(r|q) \sim N(r|P\theta,\Omega) N(\theta|\xi,v)&lt;/script&gt;
 Similarly, we let $H_r = V^{-1} + p’\Omega^{-1}P, \eta’_r =\xi’V^{-1} + r’\Omega^{-1}P$, and one more term $z = r’\Omega^{-1}r + \xi’V^{-1}\xi$&lt;/p&gt;
 
 &lt;p&gt;and using the same trick, we get 
-&lt;script type=&quot;math/tex&quot;&gt;\mathbb{E}(r) = (\Omega^{-1}+\Omega^-1PH_r^{-1}P'\Omega^{-1})^{-1}\Omega^{-1}PH_r^{-1}V^{-1}\xi\\
-\mathbb{V}(r) = (\Omega^{-1}+\Omega^{-1}PH_r^{-1}P'\Omega^{-1})^{-1}&lt;/script&gt;&lt;/p&gt;
+&lt;script type=&quot;math/tex&quot;&gt;\small \mathbb{E}(r) = (\Omega^{-1}+\Omega^-1PH_r^{-1}P'\Omega^{-1})^{-1}\Omega^{-1}PH_r^{-1}V^{-1}\xi\\
+\small \mathbb{V}(r) = (\Omega^{-1}+\Omega^{-1}PH_r^{-1}P'\Omega^{-1})^{-1}&lt;/script&gt;&lt;/p&gt;
 
 &lt;p&gt;Recall our portfolio set up, we can now obtain optimal portfolio holding
-&lt;script type=&quot;math/tex&quot;&gt;h_{opt} = (k\mathbb{V}(r))^{-1}\mathbb{E}(r)&lt;/script&gt;&lt;/p&gt;
+&lt;script type=&quot;math/tex&quot;&gt;\small h_{opt} = (k\mathbb{V}(r))^{-1}\mathbb{E}(r)&lt;/script&gt;&lt;/p&gt;
 
 &lt;h3 id=&quot;end-note&quot;&gt;End Note&lt;/h3&gt;
 
