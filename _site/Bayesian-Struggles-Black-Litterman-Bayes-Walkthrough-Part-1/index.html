@@ -64,14 +64,14 @@
   <tbody>
     <tr>
       <td>Very obviously we can approximate the posterior to $N(q</td>
-      <td>p\theta,\Omega)* N(\theta</td>
+      <td>p\theta,\Omega) N(\theta</td>
       <td>\Pi,\Omega)$ according to (1) (question to readers, think about why are normalizer neglect-able?).</td>
     </tr>
   </tbody>
 </table>
 
 <p>Having normal distribution in hand, we realize that it’s much easier to get log form and log function preserves monotonicity. Finally we have:
-<script type="math/tex">-2logp(\theta) \sim (P\theta-q)'\Omega^{-1}(p\theta-q) + (\theta-\Pi)'\C(\theta-\Pi)\\
+<script type="math/tex">-2logp(\theta) \sim (P\theta-q)'\Omega^{-1}(p\theta-q) + (\theta-\Pi)'C(\theta-\Pi)\\
 = please\ pick\ up\ your\ pen\ and\ multiply\ out\ the\ brackets\\
 = \theta'(P'\Omega^{-1}P+C^{-1})\theta - 2(q'\Omega^{-1}P + \Pi'C^{-1})\theta\\
 = \theta'H\theta - 2\eta\theta</script>
@@ -86,8 +86,8 @@ It’s then clear that $H = \frac{1}{\sigma^2}\ and\ \eta = \frac{\mu}{\sigma^2}
 
 <p>Well at this stage, I bet my readers already know the derivation for this one. Thanks to conjugate prior, we will be able to maintain the same update format as $\theta$.</p>
 
-<p>let $\xi = H^{-1}\eta, v = H^{-1}$, hence 
-<script type="math/tex">p(r|q) \sim N(r|P\theta,\Omega) * N(\theta|\xi,v)</script>
+<p>let $\xi = H^{-1}\eta, v = H^{-1}​$, hence 
+<script type="math/tex">p(r|q) \sim N(r|P\theta,\Omega) N(\theta|\xi,v)</script>
 Similarly, we let $H_r = V^{-1} + p’\Omega^{-1}P, \eta’_r =\xi’V^{-1} + r’\Omega^{-1}P$, and one more term $z = r’\Omega^{-1}r + \xi’V^{-1}\xi$</p>
 
 <p>and using the same trick, we get 
