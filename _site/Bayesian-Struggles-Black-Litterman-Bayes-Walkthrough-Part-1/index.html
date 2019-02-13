@@ -4,7 +4,7 @@
 
 <p>Before we start, I want to acknowledge that everything I learned in this post was again, from my wonderful professor Gordon Ritter at his very amazing class Active Portfolio Management (I think available at NYU tandon and Baruch MFE program). This particular class was taken from his paper with Professor Petter Kolm (who I always see him being very excited about math details). Please read <a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=2853158">their paper</a> if you are interested in learning deeper (for example, the consideration on choosing prior)!</p>
 
-<h1 id="intuitions-on-black-litterman-bayes">Intuitions on Black-Litterman-Bayes</h1>
+<h3 id="intuitions-on-black-litterman-bayes">Intuitions on Black-Litterman-Bayes</h3>
 
 <p>Objective: find optimized holdings of our portfolio s.t. $ h* = argmax_h {E[h’r] - \frac{2}V[h’r] }$</p>
 
@@ -18,7 +18,9 @@
   <li>priori optimal portfolio holding $h_b$</li>
 </ul>
 
-<h1 id="bayesian-set-up">Bayesian Set Up</h1>
+<p>###</p>
+
+<h3 id="bayesian-set-up">Bayesian Set Up</h3>
 
 <p>Imagine we have some portfolios, and N portfolio managers has opinion on what sector might outperform all other sectors by a percentage, $q%$. Then essentially the holdings on portfolio of each manager makes up a matrix $P$ of N rows and each row is a set of holdings. Then our expected return on the whole portfolio equals to $q$.</p>
 
@@ -38,9 +40,9 @@
       <tbody>
         <tr>
           <td>$p(\theta</td>
-          <td>q) = \frac{f(q</td>
-          <td>\theta)\pi(\theta)}{\int{f(q</td>
-          <td>\theta)\pi(\theta)}}$                           (1)</td>
+          <td>q) = f(q</td>
+          <td>\theta)\pi(\theta) (\int{f(q</td>
+          <td>\theta)\pi(\theta)})^{-1}$             (1)</td>
         </tr>
       </tbody>
     </table>
@@ -54,7 +56,7 @@
           <td>$p(r</td>
           <td>q) = \int{p(r</td>
           <td>\theta)p(\theta</td>
-          <td>q)d\theta} $              (2)</td>
+          <td>q)d\theta} ​$                                 (2)</td>
         </tr>
       </tbody>
     </table>
@@ -64,7 +66,7 @@
   </li>
 </ol>
 
-<h1 id="posterior-of-theta">Posterior of $\theta$</h1>
+<h3 id="posterior-of-theta">Posterior of $\theta$</h3>
 
 <p>Very obviously we can approximate the posterior to</p>
 
@@ -85,12 +87,15 @@
 = \theta'H\theta - 2\eta\theta</script>
 For simplicity, let $H = P’\Omega^{-1}P+C^{-1}$ and $\eta = q’\Omega^{-1}P + \Pi’C^{-1}$</p>
 
-<p>Now, think about how we get mean and covariance of $\theta$
-<script type="math/tex">logp(\theta) \approx c + \frac{(\theta-\mu)^2}{\sigma^2}\\
+<h3 id="now-think-about-how-we-get-mean-and-covariance-of-theta">Now, think about how we get mean and covariance of $\theta$</h3>
+
+<p><script type="math/tex">logp(\theta) \approx c + \frac{(\theta-\mu)^2}{\sigma^2}\\
 \approx \frac{\theta^2}{\sigma^2} + \frac{2\theta\mu}{\sigma^2}\ (omitting\ terms\ without\ \theta)\                  (4)</script>
 It’s then clear that $H = \frac{1}{\sigma^2}\ and\ \eta = \frac{\mu}{\sigma^2} $ so we have covariance equals to $H^{-1}$ and mean equals $H^{-1}\eta$ .</p>
 
-<h1 id="posterior-of-r">Posterior of r</h1>
+<p>###</p>
+
+<h3 id="posterior-of-r">Posterior of r</h3>
 
 <p>Well at this stage, I bet my readers already know the derivation for this one. Thanks to conjugate prior, we will be able to maintain the same update format as $\theta$.</p>
 
@@ -105,7 +110,7 @@ Similarly, we let $H_r = V^{-1} + p’\Omega^{-1}P, \eta’_r =\xi’V^{-1} + r�
 <p>Recall our portfolio set up, we can now obtain optimal portfolio holding
 <script type="math/tex">h_{opt} = (k\mathbb{V}(r))^{-1}\mathbb{R}(r)</script></p>
 
-<h1 id="end-note">End Note</h1>
+<h3 id="end-note">End Note</h3>
 
 <p>Originally I imagined putting everything in one post, but while writing it I decided it’s best to follow the structure of most generalized derivation -&gt; introduction of arbitrage pricing theory model -&gt; application, from dataset specs to code. So stay tuned for the following posts in this series!</p>
 

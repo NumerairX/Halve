@@ -10,7 +10,7 @@ Before we start, I want to acknowledge that everything I learned in this post wa
 
 
 
-# Intuitions on Black-Litterman-Bayes
+### Intuitions on Black-Litterman-Bayes
 
 Objective: find optimized holdings of our portfolio s.t. $ h* = argmax_h {E[h'r] - \frac{{k}}{2}V[h'r] }$
 
@@ -22,9 +22,9 @@ Elements needed:
 - $r$'s conjugate prior, let $\theta \sim N(\Pi,C)$
 - priori optimal portfolio holding $h_b$
 
+### 
 
-
-# Bayesian Set Up
+### Bayesian Set Up
 
 Imagine we have some portfolios, and N portfolio managers has opinion on what sector might outperform all other sectors by a percentage, $q%$. Then essentially the holdings on portfolio of each manager makes up a matrix $P$ of N rows and each row is a set of holdings. Then our expected return on the whole portfolio equals to $q$. 
 
@@ -36,17 +36,17 @@ Our calculation steps then follow:
 
 1. calculate posterior of $\theta$: 
 
-   $p(\theta|q) = \frac{f(q|\theta)\pi(\theta)}{\int{f(q|\theta)\pi(\theta)}}$                           (1)
+   $p(\theta|q) = f(q|\theta)\pi(\theta) (\int{f(q|\theta)\pi(\theta)})^{-1}$             (1)
 
 2. use the above to calculate the posterior of $r$:
 
-    $p(r|q) = \int{p(r|\theta)p(\theta|q)d\theta} $              (2)
+    $p(r|q) = \int{p(r|\theta)p(\theta|q)d\theta} ​$                                 (2)
 
 3. use the mean and variance of posterior of r to calculate $h_{opt}$
 
 
 
-# Posterior of $\theta$
+### Posterior of $\theta$
 
 Very obviously we can approximate the posterior to 
 
@@ -61,16 +61,17 @@ $$
 $$
 For simplicity, let $H = P'\Omega^{-1}P+C^{-1}$ and $\eta = q'\Omega^{-1}P + \Pi'C^{-1}$
 
-Now, think about how we get mean and covariance of $\theta$
+### Now, think about how we get mean and covariance of $\theta$
+
 $$
 logp(\theta) \approx c + \frac{(\theta-\mu)^2}{\sigma^2}\\
 \approx \frac{\theta^2}{\sigma^2} + \frac{2\theta\mu}{\sigma^2}\ (omitting\ terms\ without\ \theta)\                  (4)
 $$
 It's then clear that $H = \frac{1}{\sigma^2}\ and\ \eta = \frac{\mu}{\sigma^2} $ so we have covariance equals to $H^{-1}$ and mean equals $H^{-1}\eta$ .
 
+### 
 
-
-# Posterior of r
+### Posterior of r
 
 Well at this stage, I bet my readers already know the derivation for this one. Thanks to conjugate prior, we will be able to maintain the same update format as $\theta$. 
 
@@ -92,7 +93,7 @@ $$
 h_{opt} = (k\mathbb{V}(r))^{-1}\mathbb{R}(r)
 $$
 
-# End Note
+### End Note
 
 Originally I imagined putting everything in one post, but while writing it I decided it's best to follow the structure of most generalized derivation -> introduction of arbitrage pricing theory model -> application, from dataset specs to code. So stay tuned for the following posts in this series! 
 
